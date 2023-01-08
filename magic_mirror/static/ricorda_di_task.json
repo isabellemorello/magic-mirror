@@ -1,0 +1,229 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('isabelle.morello%40hotmail.it')/todo/lists('AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAA%3D%3D')/tasks",
+    "value": [
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAF877nvA==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "notStarted",
+            "title": "Alexa",
+            "createdDateTime": "2022-12-06T19:29:37.8370017Z",
+            "lastModifiedDateTime": "2022-12-06T19:39:39.0128093Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAJ44XXtem6pElvGja9ok5YYABfQRrSIAAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            }
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAF877nug==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "notStarted",
+            "title": "Guardare lezione su Alexa",
+            "createdDateTime": "2022-12-06T19:29:22.806814Z",
+            "lastModifiedDateTime": "2022-12-06T19:39:25.2481862Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAJ44XXtem6pElvGja9ok5YYABfQRrSEAAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            }
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAF877nuA==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "notStarted",
+            "title": "Guardare lezione su intro a SSH",
+            "createdDateTime": "2022-12-06T19:29:06.0423744Z",
+            "lastModifiedDateTime": "2022-12-06T19:39:07.8275809Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAJ44XXtem6pElvGja9ok5YYABfQRrSAAAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            }
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAF877nVQ==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "completed",
+            "title": "Spostare nomi eventi a sinistra",
+            "createdDateTime": "2022-12-01T21:51:33.1469658Z",
+            "lastModifiedDateTime": "2022-12-06T19:28:23.498502Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAJ44XXtem6pElvGja9ok5YYABe8gr4cAAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            },
+            "completedDateTime": {
+                "dateTime": "2022-12-06T00:00:00.0000000",
+                "timeZone": "UTC"
+            }
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAF877nTw==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "completed",
+            "title": "Aggiungere padding tra eventi calendario",
+            "createdDateTime": "2022-12-01T21:50:46.9939738Z",
+            "lastModifiedDateTime": "2022-12-06T19:28:18.9988182Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAJ44XXtem6pElvGja9ok5YYABe8gr4YAAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            },
+            "completedDateTime": {
+                "dateTime": "2022-12-06T00:00:00.0000000",
+                "timeZone": "UTC"
+            }
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAF7s6CXQ==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "completed",
+            "title": "Frase del giorno",
+            "createdDateTime": "2022-11-17T14:14:47.9749085Z",
+            "lastModifiedDateTime": "2022-12-01T21:50:18.4022439Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAJ44XXtem6pElvGja9ok5YYABecI5bAAAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            },
+            "completedDateTime": {
+                "dateTime": "2022-12-01T00:00:00.0000000",
+                "timeZone": "UTC"
+            }
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAF5reLFQ==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "notStarted",
+            "title": "Temperatura stanza",
+            "createdDateTime": "2022-11-17T14:14:36.9600596Z",
+            "lastModifiedDateTime": "2022-11-17T14:24:38.3708164Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAJ44XXtem6pElvGja9ok5YYABecI5a8AAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            }
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAF877nUg==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "completed",
+            "title": "Meteo",
+            "createdDateTime": "2022-11-17T14:14:25.9452127Z",
+            "lastModifiedDateTime": "2022-12-06T19:28:20.248731Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAJ44XXtem6pElvGja9ok5YYABecI5a4AAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            },
+            "completedDateTime": {
+                "dateTime": "2022-12-06T00:00:00.0000000",
+                "timeZone": "UTC"
+            }
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAF877nWA==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "completed",
+            "title": "Microsoft To Do List",
+            "createdDateTime": "2022-11-17T14:14:18.0238989Z",
+            "lastModifiedDateTime": "2022-12-06T19:28:24.6702936Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAJ44XXtem6pElvGja9ok5YYABecI5a0AAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            },
+            "completedDateTime": {
+                "dateTime": "2022-12-06T00:00:00.0000000",
+                "timeZone": "UTC"
+            }
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAF7s6CZg==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "completed",
+            "title": "Google Calendar",
+            "createdDateTime": "2022-11-17T14:14:07.3215321Z",
+            "lastModifiedDateTime": "2022-12-01T21:50:26.7922764Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAJ44XXtem6pElvGja9ok5YYABecI5awAAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            },
+            "completedDateTime": {
+                "dateTime": "2022-12-01T00:00:00.0000000",
+                "timeZone": "UTC"
+            }
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAF7s6CaQ==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "completed",
+            "title": "Data",
+            "createdDateTime": "2022-11-17T14:14:00.0876672Z",
+            "lastModifiedDateTime": "2022-12-01T21:50:27.823453Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAJ44XXtem6pElvGja9ok5YYABecI5asAAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            },
+            "completedDateTime": {
+                "dateTime": "2022-12-01T00:00:00.0000000",
+                "timeZone": "UTC"
+            }
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAF7s6CbA==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "completed",
+            "title": "Ora",
+            "createdDateTime": "2022-11-17T14:13:58.322168Z",
+            "lastModifiedDateTime": "2022-12-01T21:50:28.4640331Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAJ44XXtem6pElvGja9ok5YYABecI5aoAAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            },
+            "completedDateTime": {
+                "dateTime": "2022-12-01T00:00:00.0000000",
+                "timeZone": "UTC"
+            }
+        }
+    ]
+}

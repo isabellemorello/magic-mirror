@@ -1,0 +1,426 @@
+[
+    {
+        "kind": "calendar#event",
+        "etag": "\"3336731551944000\"",
+        "id": "65im8p9m74pmcb9k6komcb9k75i3ebb2cks6ab9k6lj6acpj6os6achg6o",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=NjVpbThwOW03NHBtY2I5azZrb21jYjlrNzVpM2ViYjJja3M2YWI5azZsajZhY3BqNm9zNmFjaGc2byBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-11-13T18:55:10.000Z",
+        "updated": "2022-11-13T18:57:21.902Z",
+        "summary": "Fare qualcosa Minchietti",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2022-12-03T16:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "end": {
+            "dateTime": "2022-12-03T17:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "iCalUID": "65im8p9m74pmcb9k6komcb9k75i3ebb2cks6ab9k6lj6acpj6os6achg6o@google.com",
+        "sequence": 1,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 1440
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3336731338094000\"",
+        "id": "cpij6p1g6dgjeb9kckpj0b9kccqmab9oclijab9pc8r34o9ic5gjicpn74",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=Y3BpajZwMWc2ZGdqZWI5a2NrcGowYjlrY2NxbWFiOW9jbGlqYWI5cGM4cjM0bzlpYzVnamljcG43NCBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-11-13T18:51:10.000Z",
+        "updated": "2022-11-13T18:57:47.671Z",
+        "summary": "Notte a TS per Villach",
+        "colorId": "10",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2022-12-10T19:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "end": {
+            "dateTime": "2022-12-10T20:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "iCalUID": "cpij6p1g6dgjeb9kckpj0b9kccqmab9oclijab9pc8r34o9ic5gjicpn74@google.com",
+        "sequence": 1,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 1440
+                },
+                {
+                    "method": "popup",
+                    "minutes": 10080
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3336731286824000\"",
+        "id": "c8q34e326os32bb1cgp36b9k64pm6b9p6opm4b9oc9gjaphhcoo64c1lcg",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=YzhxMzRlMzI2b3MzMmJiMWNncDM2YjlrNjRwbTZiOXA2b3BtNGI5b2M5Z2phcGhoY29vNjRjMWxjZyBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-11-13T18:50:09.000Z",
+        "updated": "2022-11-13T18:57:57.496Z",
+        "summary": "Mercatini Villach",
+        "colorId": "10",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "date": "2022-12-11"
+        },
+        "end": {
+            "date": "2022-12-12"
+        },
+        "transparency": "transparent",
+        "iCalUID": "c8q34e326os32bb1cgp36b9k64pm6b9p6opm4b9oc9gjaphhcoo64c1lcg@google.com",
+        "sequence": 1,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 30
+                },
+                {
+                    "method": "popup",
+                    "minutes": 9540
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3319239255689000\"",
+        "id": "60p62o9gccp30b9n6oom6b9k71hm8b9p64sjgb9mcoqj2d9i74r3go9l70",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=NjBwNjJvOWdjY3AzMGI5bjZvb202YjlrNzFobThiOXA2NHNqZ2I5bWNvcWoyZDlpNzRyM2dvOWw3MCBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-08-04T13:27:07.000Z",
+        "updated": "2022-08-04T13:27:07.885Z",
+        "summary": "Scadenza DOMANDA di laurea",
+        "colorId": "11",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "date": "2022-12-15"
+        },
+        "end": {
+            "date": "2022-12-16"
+        },
+        "transparency": "transparent",
+        "iCalUID": "60p62o9gccp30b9n6oom6b9k71hm8b9p64sjgb9mcoqj2d9i74r3go9l70@google.com",
+        "sequence": 0,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 39780
+                },
+                {
+                    "method": "popup",
+                    "minutes": 30
+                },
+                {
+                    "method": "popup",
+                    "minutes": 9540
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3279480953820000\"",
+        "id": "ccqj6p1pcgsmcb9i6tim6b9k6sr3cb9p6gq38b9g6opm8p9gckpm8e9pcg_20221217",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=Y2NxajZwMXBjZ3NtY2I5aTZ0aW02YjlrNnNyM2NiOXA2Z3EzOGI5ZzZvcG04cDlnY2twbThlOXBjZ18yMDIyMTIxNyBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2021-12-17T11:27:56.000Z",
+        "updated": "2021-12-17T11:27:56.962Z",
+        "summary": "Compleanno zio Fedele",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "date": "2022-12-17"
+        },
+        "end": {
+            "date": "2022-12-18"
+        },
+        "recurringEventId": "ccqj6p1pcgsmcb9i6tim6b9k6sr3cb9p6gq38b9g6opm8p9gckpm8e9pcg",
+        "originalStartTime": {
+            "date": "2022-12-17"
+        },
+        "transparency": "transparent",
+        "iCalUID": "ccqj6p1pcgsmcb9i6tim6b9k6sr3cb9p6gq38b9g6opm8p9gckpm8e9pcg@google.com",
+        "sequence": 0,
+        "reminders": {
+            "useDefault": false
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3285094048882000\"",
+        "id": "cph6ad356cqm6b9ic8pm8b9k6kr3ab9pclj34bb3c8pjephj6lh6ad9mc4_20230115",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=Y3BoNmFkMzU2Y3FtNmI5aWM4cG04YjlrNmtyM2FiOXBjbGozNGJiM2M4cGplcGhqNmxoNmFkOW1jNF8yMDIzMDExNSBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2021-01-15T07:39:14.000Z",
+        "updated": "2022-01-18T23:03:44.441Z",
+        "summary": "Compleanno Ilaria Iurilli",
+        "colorId": "2",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "date": "2023-01-15"
+        },
+        "end": {
+            "date": "2023-01-16"
+        },
+        "recurringEventId": "cph6ad356cqm6b9ic8pm8b9k6kr3ab9pclj34bb3c8pjephj6lh6ad9mc4",
+        "originalStartTime": {
+            "date": "2023-01-15"
+        },
+        "transparency": "transparent",
+        "iCalUID": "cph6ad356cqm6b9ic8pm8b9k6kr3ab9pclj34bb3c8pjephj6lh6ad9mc4@google.com",
+        "sequence": 0,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 30
+                },
+                {
+                    "method": "email",
+                    "minutes": 450
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3287113176294000\"",
+        "id": "cgrm6d9n68sjab9j70pm4b9kckr68b9p75i36b9l65h32cpp6cq3cphl6s_20230214",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=Y2dybTZkOW42OHNqYWI5ajcwcG00YjlrY2tyNjhiOXA3NWkzNmI5bDY1aDMyY3BwNmNxM2NwaGw2c18yMDIzMDIxNCBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2021-12-17T11:26:44.000Z",
+        "updated": "2022-03-15T19:32:51.554Z",
+        "summary": "Compleanno Lucia Angieri",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "date": "2023-02-14"
+        },
+        "end": {
+            "date": "2023-02-15"
+        },
+        "recurringEventId": "cgrm6d9n68sjab9j70pm4b9kckr68b9p75i36b9l65h32cpp6cq3cphl6s",
+        "originalStartTime": {
+            "date": "2023-02-14"
+        },
+        "transparency": "transparent",
+        "iCalUID": "cgrm6d9n68sjab9j70pm4b9kckr68b9p75i36b9l65h32cpp6cq3cphl6s@google.com",
+        "sequence": 0,
+        "reminders": {
+            "useDefault": false
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3203149858978000\"",
+        "id": "70o34d34ckpjgbb46sqj0b9k6dh38b9pc5i30bb2ckrj4dj460q6ap1lcc_20230317T230000Z",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=NzBvMzRkMzRja3BqZ2JiNDZzcWowYjlrNmRoMzhiOXBjNWkzMGJiMmNrcmo0ZGo0NjBxNmFwMWxjY18yMDIzMDMxN1QyMzAwMDBaIGlzYWJlbGxlLm1pY2hlbGxlLm1vcmVsbG9AbQ",
+        "created": "2019-04-17T22:11:13.000Z",
+        "updated": "2022-03-18T13:39:45.031Z",
+        "summary": "Compleanno Morgan \ud83c\udf82",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2023-03-18T00:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "end": {
+            "dateTime": "2023-03-19T00:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "recurringEventId": "70o34d34ckpjgbb46sqj0b9k6dh38b9pc5i30bb2ckrj4dj460q6ap1lcc",
+        "originalStartTime": {
+            "dateTime": "2023-03-18T00:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "iCalUID": "70o34d34ckpjgbb46sqj0b9k6dh38b9pc5i30bb2ckrj4dj460q6ap1lcc@google.com",
+        "sequence": 0,
+        "extendedProperties": {
+            "private": {
+                "eventAttendeeList": "[]"
+            }
+        },
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 0
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3319239373402000\"",
+        "id": "68sj8oj1c5h34bb66oo62b9k64pm4bb2ckpm8b9hcgrj2d1o60qj0db6cc",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=NjhzajhvajFjNWgzNGJiNjZvbzYyYjlrNjRwbTRiYjJja3BtOGI5aGNncmoyZDFvNjBxajBkYjZjYyBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-08-04T13:28:06.000Z",
+        "updated": "2022-08-04T13:28:06.785Z",
+        "summary": "Scadenza TESI di laurea",
+        "colorId": "11",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "date": "2023-03-28"
+        },
+        "end": {
+            "date": "2023-03-29"
+        },
+        "transparency": "transparent",
+        "iCalUID": "68sj8oj1c5h34bb66oo62b9k64pm4bb2ckpm8b9hcgrj2d1o60qj0db6cc@google.com",
+        "sequence": 0,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 39780
+                },
+                {
+                    "method": "popup",
+                    "minutes": 30
+                },
+                {
+                    "method": "popup",
+                    "minutes": 9540
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3296980437834000\"",
+        "id": "6di64pj660o34b9icos3eb9kc5imcb9p6sqj0bb675imcc1kcor38c1i6k_20230328",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=NmRpNjRwajY2MG8zNGI5aWNvczNlYjlrYzVpbWNiOXA2c3FqMGJiNjc1aW1jYzFrY29yMzhjMWk2a18yMDIzMDMyOCBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-03-28T17:56:58.000Z",
+        "updated": "2022-03-28T17:56:58.917Z",
+        "summary": "Compleanno Dennis",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "date": "2023-03-28"
+        },
+        "end": {
+            "date": "2023-03-29"
+        },
+        "recurringEventId": "6di64pj660o34b9icos3eb9kc5imcb9p6sqj0bb675imcc1kcor38c1i6k",
+        "originalStartTime": {
+            "date": "2023-03-28"
+        },
+        "transparency": "transparent",
+        "iCalUID": "6di64pj660o34b9icos3eb9kc5imcb9p6sqj0bb675imcc1kcor38c1i6k@google.com",
+        "sequence": 0,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 30
+                },
+                {
+                    "method": "email",
+                    "minutes": 450
+                }
+            ]
+        },
+        "eventType": "default"
+    }
+]

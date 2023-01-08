@@ -1,0 +1,117 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('isabelle.morello%40hotmail.it')/todo/lists",
+    "value": [
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGBMJnpA==\"",
+            "displayName": "Attivit\u00e0",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "defaultList",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAAAgESAAAA"
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGBMJnpg==\"",
+            "displayName": "Compleanno Rick",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "none",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAFdW2KQAAAAA=="
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGBMJnqA==\"",
+            "displayName": "Fullstack",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "none",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAF6bTVnAAAAA=="
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGBMJnqg==\"",
+            "displayName": "Laurea 2021-2022",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "none",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAFoeEZGAAAAA=="
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGBMJnrA==\"",
+            "displayName": "Mare",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "none",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAFYEreRAAAAA=="
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGBMJnrg==\"",
+            "displayName": "Montagna",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "none",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAFYEreQwAAAA=="
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGBMJnsA==\"",
+            "displayName": "Numeri",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "none",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAFYEreQgAAAA=="
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGBMJnsg==\"",
+            "displayName": "Promemoria",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "none",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAC9zS73QAAAA=="
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGBMJntA==\"",
+            "displayName": "Ricorda di",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "none",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAA=="
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGBMJntg==\"",
+            "displayName": "Routine",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "none",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAF5RnMJAAAAA=="
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGBMJnuA==\"",
+            "displayName": "Teatro",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "none",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAC9zS74AAAAA=="
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGBMJnug==\"",
+            "displayName": "Villach",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "none",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAF9kd9igAAAA=="
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGBMJnvA==\"",
+            "displayName": "Weekend fuori",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "none",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAFZRK7lwAAAA=="
+        },
+        {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAC0bn+XQ==\"",
+            "displayName": "Flagged Emails",
+            "isOwner": true,
+            "isShared": false,
+            "wellknownListName": "flaggedEmails",
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAC0ZeFFwAAAA=="
+        }
+    ]
+}

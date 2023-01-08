@@ -1,0 +1,433 @@
+[
+    {
+        "kind": "calendar#event",
+        "etag": "\"3336731553953000\"",
+        "id": "6cr68cpm75h32bb1c4pjcb9k70o38bb2clh38b9j6grm8p1k6gpj8d9l6c",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=NmNyNjhjcG03NWgzMmJiMWM0cGpjYjlrNzBvMzhiYjJjbGgzOGI5ajZncm04cDFrNmdwajhkOWw2YyBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-11-13T18:56:02.000Z",
+        "updated": "2022-11-13T18:56:31.952Z",
+        "summary": "Pizza Gaia TS",
+        "colorId": "10",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2022-11-19T19:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "end": {
+            "dateTime": "2022-11-19T20:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "iCalUID": "6cr68cpm75h32bb1c4pjcb9k70o38bb2clh38b9j6grm8p1k6gpj8d9l6c@google.com",
+        "sequence": 0,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 1440
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3333401213381000\"",
+        "id": "71ijcd9mcoo66b9mcgr6ab9k75j3eb9o6cqm4b9mclj36cr16li3ad1k6c",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=NzFpamNkOW1jb282NmI5bWNncjZhYjlrNzVqM2ViOW82Y3FtNGI5bWNsajM2Y3IxNmxpM2FkMWs2YyBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-10-05T14:57:52.000Z",
+        "updated": "2022-11-14T09:49:01.121Z",
+        "summary": "Parrucchiera",
+        "colorId": "2",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2022-11-21T10:30:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "end": {
+            "dateTime": "2022-11-21T11:30:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "iCalUID": "71ijcd9mcoo66b9mcgr6ab9k75j3eb9o6cqm4b9mclj36cr16li3ad1k6c@google.com",
+        "sequence": 0,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 20160
+                },
+                {
+                    "method": "popup",
+                    "minutes": 10080
+                },
+                {
+                    "method": "popup",
+                    "minutes": 4320
+                },
+                {
+                    "method": "popup",
+                    "minutes": 1440
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3336325678526000\"",
+        "id": "c8pjcp316or3gbb664qjib9kckpm8bb264q3eb9j6so34eb3coo3gcj374_20221122T080000Z",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=YzhwamNwMzE2b3IzZ2JiNjY0cWppYjlrY2twbThiYjI2NHEzZWI5ajZzbzM0ZWIzY29vM2djajM3NF8yMDIyMTEyMlQwODAwMDBaIGlzYWJlbGxlLm1pY2hlbGxlLm1vcmVsbG9AbQ",
+        "created": "2022-11-11T10:32:18.000Z",
+        "updated": "2022-11-11T10:34:29.349Z",
+        "summary": "Corso Fullstack",
+        "location": "Enaip FVG (Centro Servizi Formativi di Gorizia), Via del Boschetto, 37, 34170 Gorizia GO, Italia",
+        "colorId": "11",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2022-11-22T09:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "end": {
+            "dateTime": "2022-11-22T13:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "recurringEventId": "c8pjcp316or3gbb664qjib9kckpm8bb264q3eb9j6so34eb3coo3gcj374",
+        "originalStartTime": {
+            "dateTime": "2022-11-22T09:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "iCalUID": "c8pjcp316or3gbb664qjib9kckpm8bb264q3eb9j6so34eb3coo3gcj374@google.com",
+        "sequence": 1,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 30
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3336326573827000\"",
+        "id": "a22t6m4omti2mcpba2f86peuck_20221123T080000Z",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=YTIydDZtNG9tdGkybWNwYmEyZjg2cGV1Y2tfMjAyMjExMjNUMDgwMDAwWiBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-11-11T10:32:18.000Z",
+        "updated": "2022-11-11T10:48:24.741Z",
+        "summary": "Corso Fullstack",
+        "location": "Enaip FVG (Centro Servizi Formativi di Gorizia), Via del Boschetto, 37, 34170 Gorizia GO, Italia",
+        "colorId": "9",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2022-11-23T09:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "end": {
+            "dateTime": "2022-11-23T13:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "recurringEventId": "a22t6m4omti2mcpba2f86peuck",
+        "originalStartTime": {
+            "dateTime": "2022-11-23T09:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "iCalUID": "a22t6m4omti2mcpba2f86peuck@google.com",
+        "sequence": 2,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 30
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3336326573827000\"",
+        "id": "a22t6m4omti2mcpba2f86peuck_20221124T080000Z",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=YTIydDZtNG9tdGkybWNwYmEyZjg2cGV1Y2tfMjAyMjExMjRUMDgwMDAwWiBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-11-11T10:32:18.000Z",
+        "updated": "2022-11-11T10:48:24.741Z",
+        "summary": "Corso Fullstack",
+        "location": "Enaip FVG (Centro Servizi Formativi di Gorizia), Via del Boschetto, 37, 34170 Gorizia GO, Italia",
+        "colorId": "9",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2022-11-24T09:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "end": {
+            "dateTime": "2022-11-24T13:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "recurringEventId": "a22t6m4omti2mcpba2f86peuck",
+        "originalStartTime": {
+            "dateTime": "2022-11-24T09:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "iCalUID": "a22t6m4omti2mcpba2f86peuck@google.com",
+        "sequence": 2,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 30
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3336327409406000\"",
+        "id": "7ibr7f1birlo9vhv0odvd26v18_20221125T080000Z",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=N2licjdmMWJpcmxvOXZodjBvZHZkMjZ2MThfMjAyMjExMjVUMDgwMDAwWiBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-11-11T10:32:18.000Z",
+        "updated": "2022-11-11T10:48:24.741Z",
+        "summary": "Corso Fullstack",
+        "location": "Enaip FVG (Centro Servizi Formativi di Gorizia), Via del Boschetto, 37, 34170 Gorizia GO, Italia",
+        "colorId": "9",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2022-11-25T09:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "end": {
+            "dateTime": "2022-11-25T13:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "recurringEventId": "7ibr7f1birlo9vhv0odvd26v18",
+        "originalStartTime": {
+            "dateTime": "2022-11-25T09:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "iCalUID": "7ibr7f1birlo9vhv0odvd26v18@google.com",
+        "sequence": 3,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 30
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3336731335062000\"",
+        "id": "64p3ed9hcoq30bb3c5gm2b9k6kpmab9o70q38bb174p3ip9p6di6apj26s",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=NjRwM2VkOWhjb3EzMGJiM2M1Z20yYjlrNmtwbWFiOW83MHEzOGJiMTc0cDNpcDlwNmRpNmFwajI2cyBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-11-13T18:54:27.000Z",
+        "updated": "2022-11-13T18:54:27.531Z",
+        "summary": "Briciole Mamma mia",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2022-11-26T20:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "end": {
+            "dateTime": "2022-11-26T21:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "iCalUID": "64p3ed9hcoq30bb3c5gm2b9k6kpmab9o70q38bb174p3ip9p6di6apj26s@google.com",
+        "sequence": 0,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 4320
+                },
+                {
+                    "method": "popup",
+                    "minutes": 1440
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3336731860650000\"",
+        "id": "chj3ie9h64sm2b9ocorjab9kcdj6cb9p6ssj6b9j6hhj6eb46ksjid1l6s",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=Y2hqM2llOWg2NHNtMmI5b2NvcmphYjlrY2RqNmNiOXA2c3NqNmI5ajZoaGo2ZWI0NmtzamlkMWw2cyBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-11-13T18:58:50.000Z",
+        "updated": "2022-11-13T18:58:50.325Z",
+        "summary": "Spettacolo SIX",
+        "location": "Gradisca",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "date": "2022-11-27"
+        },
+        "end": {
+            "date": "2022-11-28"
+        },
+        "transparency": "transparent",
+        "iCalUID": "chj3ie9h64sm2b9ocorjab9kcdj6cb9p6ssj6b9j6hhj6eb46ksjid1l6s@google.com",
+        "sequence": 0,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 30
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3336731551944000\"",
+        "id": "65im8p9m74pmcb9k6komcb9k75i3ebb2cks6ab9k6lj6acpj6os6achg6o",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=NjVpbThwOW03NHBtY2I5azZrb21jYjlrNzVpM2ViYjJja3M2YWI5azZsajZhY3BqNm9zNmFjaGc2byBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-11-13T18:55:10.000Z",
+        "updated": "2022-11-13T18:57:21.902Z",
+        "summary": "Fare qualcosa Minchietti",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2022-12-03T16:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "end": {
+            "dateTime": "2022-12-03T17:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "iCalUID": "65im8p9m74pmcb9k6komcb9k75i3ebb2cks6ab9k6lj6acpj6os6achg6o@google.com",
+        "sequence": 1,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 1440
+                }
+            ]
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3336731338094000\"",
+        "id": "cpij6p1g6dgjeb9kckpj0b9kccqmab9oclijab9pc8r34o9ic5gjicpn74",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=Y3BpajZwMWc2ZGdqZWI5a2NrcGowYjlrY2NxbWFiOW9jbGlqYWI5cGM4cjM0bzlpYzVnamljcG43NCBpc2FiZWxsZS5taWNoZWxsZS5tb3JlbGxvQG0",
+        "created": "2022-11-13T18:51:10.000Z",
+        "updated": "2022-11-13T18:57:47.671Z",
+        "summary": "Notte a TS per Villach",
+        "colorId": "10",
+        "creator": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "isabelle.michelle.morello@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2022-12-10T19:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "end": {
+            "dateTime": "2022-12-10T20:00:00+01:00",
+            "timeZone": "Europe/Rome"
+        },
+        "iCalUID": "cpij6p1g6dgjeb9kckpj0b9kccqmab9oclijab9pc8r34o9ic5gjicpn74@google.com",
+        "sequence": 1,
+        "reminders": {
+            "useDefault": false,
+            "overrides": [
+                {
+                    "method": "popup",
+                    "minutes": 10080
+                },
+                {
+                    "method": "popup",
+                    "minutes": 1440
+                }
+            ]
+        },
+        "eventType": "default"
+    }
+]]
