@@ -59,7 +59,7 @@ class Calendar:
         month_list = []
         date = self.get_date()
         for m in date:
-            month_list.append(m.strftime("%b"))
+            month_list.append(m.strftime("%m"))
         # print(month_list)
         return month_list
 

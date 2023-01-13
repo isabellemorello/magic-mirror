@@ -11,7 +11,10 @@ from models.calendar_model import Calendar
 from models.to_do_list_model import ToDoList
 from models.weather_model import Weather
 from urllib.request import urlopen
+# from temperature_home import read as read_temp
 
+# temp = read_temp()
+# print(f"Temp is {temp}")
 locale.setlocale(locale.LC_ALL, 'it_IT')
 
 def app():
@@ -23,7 +26,7 @@ def app():
     calendar_m = Calendar("static/calendar_events.json")
     routine_list = ToDoList("static/routine_task.json").title_list
     ricorda_di_list = ToDoList("static/ricorda_di_task.json").title_list
-    weather_data = "open_weather_map/weather_one_call.json"
+    weather_data = "static/weather_one_call.json"
 
     weather = Weather(weather_data)
     icon = weather.icon
@@ -32,6 +35,9 @@ def app():
     weekday_count = 0
     weekday = ""
     room_temperature = 16
+
+    # temp = read_temp()
+    # print(f"Temp is {temp}")
 
 
     # ------------------------------------------ Tkinter WINDOW -------------------------------------------------
@@ -49,13 +55,9 @@ def app():
     # -------------------------------------------- FUNCTIONS -------------------------------------------------
     def clock_func():
         """Display a digital clock"""
-        global date
-        date_time = dt.datetime.now().strftime("%A, %d %B  %H:%M:%S/")
-        date, time1 = date_time.split("  ")
-        time2, time3 = time1.split('/')
-        hour, minutes, seconds = time2.split(':')
-        time = time2 + ' ' + time3
-        clock_label.config(text=time)
+        clock = dt.datetime.now().strftime("%H:%M:%S")
+        date = dt.datetime.now().strftime("%A, %d %B")
+        clock_label.config(text=clock)
         date_label.config(text=date)
         clock_label.after(1000, clock_func)
 
@@ -119,25 +121,30 @@ def app():
     frame6 = Frame(frame1, background="black")
     frame6.grid(row=3, column=0, sticky="wesn")
 
-    clock_label = Label(frame2, text=clock, fg="white", bg="black", font=("Ariel", 40, "bold"))
+    clock_label = Label(frame2, text=clock, fg="white", bg="black", font=("Arial", 40, "bold"))
     clock_label.grid(row=0, column=0, sticky="wesn")
-    date_label = Label(frame2, text=date, fg="white", bg="black", font=("Ariel", 20, "normal"))
+    date_label = Label(frame2, text=date, fg="white", bg="black", font=("Arial", 20, "normal"))
     date_label.grid(row=1, column=0, padx=20, sticky="wesn", pady=(0, 60))
 
-    greet_label = Label(frame2, text="Ciao Isabelle Michelle", fg="white", bg="black", font=("Ariel", 20, "normal"), anchor="center", width=50)
+    greet_label = Label(frame2, text="Ciao Isabelle Michelle", fg="white", bg="black", font=("Arial", 20, "normal"), anchor="center", width=50)
     greet_label.grid(row=2, column=0, padx=50, pady=20)
 
-    quote_text_label = Label(frame2, text="", wraplength=500, fg="white", bg="black", justify="center", font=("Ariel", 20, "normal"), width=50)
-    quote_author_label = Label(frame2, text="", fg="white", bg="black", justify="center", font=("Ariel", 15, "normal"), width=50)
+    quote_text_label = Label(frame2, text="", wraplength=500, fg="white", bg="black", justify="center", font=("Arial", 20, "normal"), width=50)
+    quote_author_label = Label(frame2, text="", fg="white", bg="black", justify="center", font=("Arial", 15, "normal"), width=50)
     quote_text_label.grid(row=3, column=0, padx=50, sticky="wesn")
     quote_author_label.grid(row=4, column=0, padx=50, sticky="wesn")
 
-    # sentence = Label(text=motivational_sentences[randint(0, len(motivational_sentences) - 1)], wraplength=400, fg="white", bg="black", font=("Ariel", 20, "normal"))
+    # sentence = Label(text=motivational_sentences[randint(0, len(motivational_sentences) - 1)], wraplength=400, fg="white", bg="black", font=("Arial", 20, "normal"))
     # sentence.grid(row=3, column=1)
+
+    clock_func()
+    window.after(4000, destroy_greet)
+    quote_text_label.after(4025, change_quote)
+    # quote_text_label.after(10000, move_quote)
 
 
     # -------------------------------------------------- Calendario ---------------------------------------------------
-    calendar_title_label = Label(frame4, text="Calendario:", fg="white", bg="black", font=("Ariel", 15, "bold"))
+    calendar_title_label = Label(frame4, text="Calendario:", fg="white", bg="black", font=("Arial", 15, "bold"))
     calendar_title_label.grid(row=0, column=0, pady=(0, 5), sticky="w")
 
     for i in range(0, 4):
@@ -147,37 +154,31 @@ def app():
         frame_c1 = Frame(frame4, background="black")
         frame_c1.grid(row=1 + i, column=1, sticky="w", pady=(0, 5), padx=(20, 0))
 
-        number_c = Label(frame_c, text=calendar_m.date_number[i], fg="white", bg="black", font=("Ariel", 20))
+        number_c = Label(frame_c, text=calendar_m.date_number[i], fg="white", bg="black", font=("Arial", 20))
         number_c.grid(row=0, column=0, sticky="nw")
-        day_c = Label(frame_c, text=calendar_m.weekday[i], fg="white", bg="black", font=("Ariel", 15))
+        day_c = Label(frame_c, text=f" / {calendar_m.month[i]}  {calendar_m.weekday[i]}", fg="white", bg="black", font=("Arial", 15))
         day_c.grid(row=0, column=1, sticky="nw")
-        hour_c = Label(frame_c, text=calendar_m.hour[i], fg="white", bg="black", font=("Ariel", 15), anchor="w")
+        hour_c = Label(frame_c, text=calendar_m.hour[i], fg="white", bg="black", font=("Arial", 15), anchor="w")
         hour_c.grid(row=1, column=1, sticky="wesn", columnspan=2)
-        name_c = Label(frame_c1, text=calendar_m.name[i], fg="white", bg="black", wraplength=200, font=("Ariel", 15), anchor="w")
+        name_c = Label(frame_c1, text=calendar_m.name[i], fg="white", bg="black", wraplength=200, font=("Arial", 15), anchor="w")
         name_c.grid(row=1, column=0, sticky="wesn", rowspan=2)
 
     # -------------------------------------------------- To Do List ---------------------------------------------------
-    routine_title_label = Label(frame5, text="Routine:", fg="white", bg="black", font=("Ariel", 15, "bold"))
+    routine_title_label = Label(frame5, text="Routine:", fg="white", bg="black", font=("Arial", 15, "bold"))
     routine_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
 
     for i in range(len(routine_list)):
-        routine_label = Label(frame5, text=f"☐   {routine_list[i]}", fg="white", bg="black", font=("Ariel", 15))
+        routine_label = Label(frame5, text=f"☐   {routine_list[i]}", fg="white", bg="black", font=("Arial", 15))
         i += 1
         routine_label.grid(row=1+i, column=0, sticky="w")
 
-    ricorda_title_label = Label(frame6, text="Ricorda di:", fg="white", bg="black", font=("Ariel", 15, "bold"))
+    ricorda_title_label = Label(frame6, text="Ricorda di:", fg="white", bg="black", font=("Arial", 15, "bold"))
     ricorda_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
 
     for i in range(len(ricorda_di_list)):
-        ricorda_di_label = Label(frame6, text=f"☐   {ricorda_di_list[i]}", fg="white", bg="black", font=("Ariel", 15))
+        ricorda_di_label = Label(frame6, text=f"☐   {ricorda_di_list[i]}", fg="white", bg="black", font=("Arial", 15))
         i += 1
         ricorda_di_label.grid(row=1+i, column=0, sticky="w")
-
-
-    clock_func()
-    window.after(4000, destroy_greet)
-    quote_text_label.after(4025, change_quote)
-    # quote_text_label.after(10000, move_quote)
 
 
     # -------------------------------------------------- Meteo ---------------------------------------------------
@@ -260,12 +261,13 @@ def app():
 
     window.mainloop()
 
-# try:
-#     calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
-#     microsoft_task = to_do.app_to_do(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json"), activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
-#     open_weather_map = open_weather.app_weather("static/weather_one_call.json")
-# except Exception as e:
-#     print(e)
-# else:
-#     app()
-app()
+if __name__ == "__main__":
+    # try:
+    #     calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
+    #     microsoft_task = to_do.app_to_do(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json"), activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
+    #     open_weather_map = open_weather.app_weather("static/weather_one_call.json")
+    # except Exception as e:
+    #     print(e)
+    # else:
+    #     app()
+    app()
