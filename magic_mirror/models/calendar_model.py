@@ -3,7 +3,7 @@ import  locale
 
 import json
 
-locale.setlocale(locale.LC_ALL, 'it_IT')
+# locale.setlocale(locale.LC_ALL, 'it_IT')
 
 class Calendar:
     def __init__(self, calendar_path):

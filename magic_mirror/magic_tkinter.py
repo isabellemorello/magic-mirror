@@ -1,4 +1,3 @@
-import json
 from tkinter import *
 import datetime as dt
 import locale
@@ -9,7 +8,7 @@ import google_calendar.calendar_google as gc
 import open_weather_map.open_weather_map as open_weather
 import static.quotes as quotes
 from models.calendar_model import Calendar
-# from models.to_do_list_model import ToDoList
+from models.to_do_list_model import ToDoList
 from models.weather_model import Weather
 from models.temperature_model import Temperature
 from urllib.request import urlopen
@@ -18,11 +17,12 @@ from sensor_read import read as read_temp
 import sys
 import os
 
-if os.environ.get('DISPLAY','') == '':
+if os.environ.get('DISPLAY', '') == '':
     print('no display found. Using :0.0')
     os.environ.__setitem__('DISPLAY', ':0.0')
 
 # locale.setlocale(locale.LC_ALL, 'it_IT')
+
 
 def app():
     # --------------------------------------------- VARIABLES ----------------------------------------------------
@@ -31,8 +31,8 @@ def app():
     date = now.strftime("%A, %d %B")
     # size = 14
     calendar_m = Calendar("static/calendar_events.json")
-    # routine_list = ToDoList("static/routine_task.json").title_list
-    # ricorda_di_list = ToDoList("static/ricorda_di_task.json").title_list
+    routine_list = ToDoList("static/routine_task.json").title_list
+    ricorda_di_list = ToDoList("static/ricorda_di_task.json").title_list
     weather_data = "static/weather_one_call.json"
 
     weather = Weather(weather_data)
@@ -45,9 +45,7 @@ def app():
     room_temperature = Temperature("static/temperature.json").get_temperature()
     print(f"La temperatura della stanza è: {room_temperature}")
 
-
     # ------------------------------------------ Tkinter WINDOW -------------------------------------------------
-
     window = Tk()
     window.title("Isabelle's Magic Mirror")
     window.geometry("1400x750")
@@ -74,29 +72,7 @@ def app():
         q_text = quote["text"]
         q_author = quote["author"]
         quote_text_label.config(text=q_text)
-        # quote_text_label.grid_configure(row=3, column=1, padx=50, pady=(20, 0), columnspan=3)
         quote_author_label.config(text=q_author)
-        # quote_author_label.grid(row=4, column=1, padx=50, pady=(0, 20), columnspan=3)
-        # TODO: after midnight this function choose a new random quote
-
-        # hour, minutes, seconds = now.time().strftime("%H:%M:%S").split(':')
-        # if int(hour) == int("20") and int(minutes) == int("57") and int(seconds) == int("00"):
-        # now = dt.datetime.now().time()
-        # today00 = now.replace(hour=11, minute=33, second=0, microsecond=0)
-        # if now > today00:
-        #     def func():
-        #         new_quote = quotes.quotes[randint(1, len(quotes.quotes) - 1)]
-        #         quote_text_label.config(text=new_quote["text"])
-        #         quote_author_label.config(text=new_quote["author"])
-        # # if dt.datetime.now().time() == dt.datetime.now().time().replace():
-        # #     quote_text_label.after(0, change_quote)
-        #     quote_text_label.after(1000, func)
-
-
-    def move_quote():
-        """Move quote text and author to the top of the screen"""
-        quote_text_label.grid_configure(row=0)
-        quote_author_label.grid_configure(row=2)
 
 
     def destroy_greet():
@@ -140,13 +116,10 @@ def app():
     quote_text_label.grid(row=3, column=0, padx=50, sticky="wesn")
     quote_author_label.grid(row=4, column=0, padx=50, sticky="wesn")
 
-    # sentence = Label(text=motivational_sentences[randint(0, len(motivational_sentences) - 1)], wraplength=400, fg="white", bg="black", font=("Arial", 20, "normal"))
-    # sentence.grid(row=3, column=1)
 
     clock_func()
     window.after(4000, destroy_greet)
     quote_text_label.after(4025, change_quote)
-    # quote_text_label.after(10000, move_quote)
 
 
     # -------------------------------------------------- Calendario ---------------------------------------------------
@@ -169,22 +142,23 @@ def app():
         name_c = Label(frame_c1, text=calendar_m.name[i], fg="white", bg="black", wraplength=200, font=("Arial", 15), anchor="w")
         name_c.grid(row=1, column=0, sticky="wesn", rowspan=2)
 
+
     # -------------------------------------------------- To Do List ---------------------------------------------------
-    # routine_title_label = Label(frame5, text="Routine:", fg="white", bg="black", font=("Arial", 15, "bold"))
-    # routine_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
-    #
-    # for i in range(len(routine_list)):
-    #     routine_label = Label(frame5, text=f"☐   {routine_list[i]}", fg="white", bg="black", font=("Arial", 15))
-    #     i += 1
-    #     routine_label.grid(row=1+i, column=0, sticky="w")
-    #
-    # ricorda_title_label = Label(frame6, text="Ricorda di:", fg="white", bg="black", font=("Arial", 15, "bold"))
-    # ricorda_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
-    #
-    # for i in range(len(ricorda_di_list)):
-    #     ricorda_di_label = Label(frame6, text=f"☐   {ricorda_di_list[i]}", fg="white", bg="black", font=("Arial", 15))
-    #     i += 1
-    #     ricorda_di_label.grid(row=1+i, column=0, sticky="w")
+    routine_title_label = Label(frame5, text="Routine:", fg="white", bg="black", font=("Arial", 15, "bold"))
+    routine_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
+
+    for i in range(len(routine_list)):
+        routine_label = Label(frame5, text=f"☐   {routine_list[i]}", fg="white", bg="black", font=("Arial", 15))
+        i += 1
+        routine_label.grid(row=1+i, column=0, sticky="w")
+
+    ricorda_title_label = Label(frame6, text="Ricorda di:", fg="white", bg="black", font=("Arial", 15, "bold"))
+    ricorda_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
+
+    for i in range(len(ricorda_di_list)):
+        ricorda_di_label = Label(frame6, text=f"☐   {ricorda_di_list[i]}", fg="white", bg="black", font=("Arial", 15))
+        i += 1
+        ricorda_di_label.grid(row=1+i, column=0, sticky="w")
 
 
     # -------------------------------------------------- Meteo ---------------------------------------------------
@@ -236,8 +210,7 @@ def app():
                     weekday = dt.date(year=date.year, month=date.month + 1, day=date.day + weekday_count - 28).strftime("%d %a").upper()
             else:
                 weekday = dt.date(year=date.year, month=date.month + 1, day=date.day + weekday_count - 31).strftime("%d %a").upper()
-        # finally:
-        #     print(weekday)
+
 
         frame = Frame(frame3, background="black")
         frame.grid(row=3+n, column=0, sticky="wesn", pady=10, columnspan=2)
