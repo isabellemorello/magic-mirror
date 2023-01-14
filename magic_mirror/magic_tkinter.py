@@ -1,21 +1,28 @@
+import json
 from tkinter import *
 import datetime as dt
 import locale
 from random import randint
 import google_calendar.calendar_google as gc
-import microsoft_to_do_list.to_do_list as to_do
-import microsoft_to_do_list.ms_graph_token as graph_token
+# import microsoft_to_do_list.to_do_list as to_do
+# import microsoft_to_do_list.ms_graph_token as graph_token
 import open_weather_map.open_weather_map as open_weather
 import static.quotes as quotes
 from models.calendar_model import Calendar
-from models.to_do_list_model import ToDoList
+# from models.to_do_list_model import ToDoList
 from models.weather_model import Weather
+from models.temperature_model import Temperature
 from urllib.request import urlopen
 # from temperature_home import read as read_temp
+from sensor_read import read as read_temp
+import sys
+import os
 
-# temp = read_temp()
-# print(f"Temp is {temp}")
-locale.setlocale(locale.LC_ALL, 'it_IT')
+if os.environ.get('DISPLAY','') == '':
+    print('no display found. Using :0.0')
+    os.environ.__setitem__('DISPLAY', ':0.0')
+
+# locale.setlocale(locale.LC_ALL, 'it_IT')
 
 def app():
     # --------------------------------------------- VARIABLES ----------------------------------------------------
@@ -24,8 +31,8 @@ def app():
     date = now.strftime("%A, %d %B")
     # size = 14
     calendar_m = Calendar("static/calendar_events.json")
-    routine_list = ToDoList("static/routine_task.json").title_list
-    ricorda_di_list = ToDoList("static/ricorda_di_task.json").title_list
+    # routine_list = ToDoList("static/routine_task.json").title_list
+    # ricorda_di_list = ToDoList("static/ricorda_di_task.json").title_list
     weather_data = "static/weather_one_call.json"
 
     weather = Weather(weather_data)
@@ -34,10 +41,9 @@ def app():
     daily_max_min = weather.daily_max_min
     weekday_count = 0
     weekday = ""
-    room_temperature = 16
-
-    # temp = read_temp()
-    # print(f"Temp is {temp}")
+    # room_temperature = 16
+    room_temperature = Temperature("static/temperature.json").get_temperature()
+    print(f"La temperatura della stanza è: {room_temperature}")
 
 
     # ------------------------------------------ Tkinter WINDOW -------------------------------------------------
@@ -164,21 +170,21 @@ def app():
         name_c.grid(row=1, column=0, sticky="wesn", rowspan=2)
 
     # -------------------------------------------------- To Do List ---------------------------------------------------
-    routine_title_label = Label(frame5, text="Routine:", fg="white", bg="black", font=("Arial", 15, "bold"))
-    routine_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
-
-    for i in range(len(routine_list)):
-        routine_label = Label(frame5, text=f"☐   {routine_list[i]}", fg="white", bg="black", font=("Arial", 15))
-        i += 1
-        routine_label.grid(row=1+i, column=0, sticky="w")
-
-    ricorda_title_label = Label(frame6, text="Ricorda di:", fg="white", bg="black", font=("Arial", 15, "bold"))
-    ricorda_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
-
-    for i in range(len(ricorda_di_list)):
-        ricorda_di_label = Label(frame6, text=f"☐   {ricorda_di_list[i]}", fg="white", bg="black", font=("Arial", 15))
-        i += 1
-        ricorda_di_label.grid(row=1+i, column=0, sticky="w")
+    # routine_title_label = Label(frame5, text="Routine:", fg="white", bg="black", font=("Arial", 15, "bold"))
+    # routine_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
+    #
+    # for i in range(len(routine_list)):
+    #     routine_label = Label(frame5, text=f"☐   {routine_list[i]}", fg="white", bg="black", font=("Arial", 15))
+    #     i += 1
+    #     routine_label.grid(row=1+i, column=0, sticky="w")
+    #
+    # ricorda_title_label = Label(frame6, text="Ricorda di:", fg="white", bg="black", font=("Arial", 15, "bold"))
+    # ricorda_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
+    #
+    # for i in range(len(ricorda_di_list)):
+    #     ricorda_di_label = Label(frame6, text=f"☐   {ricorda_di_list[i]}", fg="white", bg="black", font=("Arial", 15))
+    #     i += 1
+    #     ricorda_di_label.grid(row=1+i, column=0, sticky="w")
 
 
     # -------------------------------------------------- Meteo ---------------------------------------------------
@@ -197,7 +203,7 @@ def app():
 
     alert_room_temperature_label = Label(frame3, text="⚠️🥶", fg="white", bg="black", font=("Arial", 20, "normal"))
 
-    if room_temperature <= 16:
+    if room_temperature <= 17 and room_temperature != None:
         alert_room_temperature_label.grid(row=1, column=1, sticky=E)
     else:
         alert_room_temperature_label.grid_forget()
@@ -263,11 +269,17 @@ def app():
 
 if __name__ == "__main__":
     # try:
+    #     temperature = read_temp("static/temperature.json")
+    #     while temperature == None:
+    #         temperature = read_temp("static/temperature.json")
     #     calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
-    #     microsoft_task = to_do.app_to_do(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json"), activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
+    #     # microsoft_task = to_do.app_to_do(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json"), activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
     #     open_weather_map = open_weather.app_weather("static/weather_one_call.json")
     # except Exception as e:
     #     print(e)
     # else:
     #     app()
+    temperature = read_temp("static/temperature.json")
+    while temperature == None:
+        temperature = read_temp("static/temperature.json")
     app()

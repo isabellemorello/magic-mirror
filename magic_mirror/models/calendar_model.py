@@ -85,4 +85,4 @@ class Calendar:
 # c.get_hour()
 # for i in range(0,5):
 #     i += 1
-#     print(f"Hai un evento: {c.name[i]}, {c.weekday[i]} {c.date_number[i]} {c.month[i]} alle ore {c.hour[i]}")
+#     print(f"Hai un evento: {c.name[i]}, {c.weekday[i]} {c.date_number[i]}/{c.month[i]} alle ore {c.hour[i]}")

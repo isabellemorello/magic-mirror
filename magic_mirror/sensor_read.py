@@ -1,19 +1,20 @@
 import adafruit_dht
 import time
 import board
+import json
 
 dht_device = adafruit_dht.DHT11(board.D17)
 
 
 # Read Humidity and Temperature
-def read():
+def read(temp_path):
     humidity = None
     temperature = None
 
     try:
         temperature = dht_device.temperature
         humidity = dht_device.humidity
-        print(f"Temperature is: {temperature} and Humidity is: {humidity}")
+        print(f"Temperature is: {temperature}° and Humidity is: {humidity}%")
 
     except RuntimeError as error:
         print(error.args[0])
@@ -24,11 +25,16 @@ def read():
         print("DHT killed")
         raise error
 
-    time.sleep(30.0)
+    with open(temp_path, "w") as temp:
+        json.dump(temperature, temp, indent=4)
 
-    return humidity, temperature
+    # time.sleep(30.0)
 
+    # return humidity, temperature
+    return temperature
 
 if __name__ == '__main__':
-    while True:
-        humidity, temperature = read()
+    # while True:
+    temperature = read("static/temperature.json")
+    print(temperature)
+    # humidity, temperature = read("static/temperature.json")
