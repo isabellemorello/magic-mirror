@@ -3,7 +3,7 @@ import datetime as dt
 import locale
 from random import randint
 import google_calendar.calendar_google as gc
-# import microsoft_to_do_list.to_do_list as to_do
+import microsoft_to_do_list.to_do_list as to_do
 # import microsoft_to_do_list.ms_graph_token as graph_token
 import open_weather_map.open_weather_map as open_weather
 import static.quotes as quotes
@@ -12,16 +12,14 @@ from models.to_do_list_model import ToDoList
 from models.weather_model import Weather
 from models.temperature_model import Temperature
 from urllib.request import urlopen
-# from temperature_home import read as read_temp
 from sensor_read import read as read_temp
-import sys
 import os
 
 if os.environ.get('DISPLAY', '') == '':
     print('no display found. Using :0.0')
     os.environ.__setitem__('DISPLAY', ':0.0')
 
-# locale.setlocale(locale.LC_ALL, 'it_IT')
+locale.setlocale(locale.LC_ALL, 'it_IT')
 
 
 def app():
@@ -241,18 +239,20 @@ def app():
     window.mainloop()
 
 if __name__ == "__main__":
-    # try:
-    #     temperature = read_temp("static/temperature.json")
-    #     while temperature == None:
-    #         temperature = read_temp("static/temperature.json")
-    #     calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
-    #     # microsoft_task = to_do.app_to_do(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json"), activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
-    #     open_weather_map = open_weather.app_weather("static/weather_one_call.json")
-    # except Exception as e:
-    #     print(e)
-    # else:
-    #     app()
-    temperature = read_temp("static/temperature.json")
-    while temperature == None:
+    try:
         temperature = read_temp("static/temperature.json")
-    app()
+        while temperature == None:
+            temperature = read_temp("static/temperature.json")
+        # calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
+        microsoft_task = to_do.app_to_do(activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
+        # microsoft_task = to_do.app_to_do(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json"), activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
+        open_weather_map = open_weather.app_weather("static/weather_one_call.json")
+    except Exception as e:
+        print(e)
+    else:
+        app()
+    # temperature = read_temp("static/temperature.json")
+    # while temperature == None:
+    #     temperature = read_temp("static/temperature.json")
+    # open_weather_map = open_weather.app_weather("static/weather_one_call.json")
+    # app()

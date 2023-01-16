@@ -21,4 +21,4 @@ def app_weather(weather_path):
             json.dump(data, data_file, indent=4)
 
 if __name__ == "__main__":
-    app_weather("weather_one_call.json")
+    app_weather("../static/weather_one_call.json")
