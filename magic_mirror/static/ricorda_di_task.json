@@ -2,6 +2,22 @@
     "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('isabelle.morello%40hotmail.it')/todo/lists('AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAA%3D%3D')/tasks",
     "value": [
         {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGCwf2vg==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "notStarted",
+            "title": "provaaaa",
+            "createdDateTime": "2023-01-17T15:47:59.2136252Z",
+            "lastModifiedDateTime": "2023-01-17T15:47:59.3854863Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5wjd2AAAAJ44XXtem6pElvGja9ok5YYABgtdurgAAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            }
+        },
+        {
             "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGCwfSqA==\"",
             "importance": "normal",
             "isReminderOn": false,
