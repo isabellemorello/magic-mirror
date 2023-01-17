@@ -2,6 +2,22 @@
     "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('isabelle.morello%40hotmail.it')/todo/lists('AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgAuAAADyoocA6ILdkibyhRV60QQSgEAnjhde16bqkSW8aNr2iTlhgAF5RnMJAAAAA%3D%3D')/tasks",
     "value": [
         {
+            "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAGCwfSGw==\"",
+            "importance": "normal",
+            "isReminderOn": false,
+            "status": "notStarted",
+            "title": "Essere gentile",
+            "createdDateTime": "2023-01-16T23:25:58.2148771Z",
+            "lastModifiedDateTime": "2023-01-16T23:35:59.0790028Z",
+            "hasAttachments": false,
+            "categories": [],
+            "id": "AQMkADAwATZiZmYAZC05ZjdhLTE0MDUtMDACLTAwCgBGAAADyoocA6ILdkibyhRV60QQSgcAnjhde16bqkSW8aNr2iTlhgAF5RnMJAAAAJ44XXtem6pElvGja9ok5YYABgtdkIQAAAA=",
+            "body": {
+                "content": "",
+                "contentType": "text"
+            }
+        },
+        {
             "@odata.etag": "W/\"njhde16bqkSW8aNr2iTlhgAF5rd1Hg==\"",
             "importance": "normal",
             "isReminderOn": false,
