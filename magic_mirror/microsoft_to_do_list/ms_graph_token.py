@@ -1,9 +1,13 @@
 import os
 import webbrowser
 import msal
+import json
 
-def generate_access_token(api_token_access):
-    APP_ID = "3cbbf696-950d-41d6-b1b6-b6e3ccbe4c86"
+def generate_access_token(api_token_access, secrets_path):
+    with open(secrets_path, "r") as data:
+        secrets = json.load(data)
+
+    APP_ID = secrets["MS_APP_ID"]
     SCOPES = ["User.Read"]
 
     # save Session Token as a token file
@@ -36,6 +40,6 @@ def generate_access_token(api_token_access):
 
 if __name__ == "__main__":
 
-    token_response = generate_access_token("api_token_access.json")
+    token_response = generate_access_token("api_token_access.json", "../secrets.json")
     print(token_response["access_token"])
 

@@ -1,19 +1,20 @@
 import requests
 import json
-# import microsoft_to_do_list.ms_graph_token as gtk
+# import ms_graph_token as gtk
+import microsoft_to_do_list.ms_graph_token as gtk
 
 
-def app_to_do(secrets_path, activities_path, routine_path, ricorda_path):
-# def app_to_do(generate_access_token, activities_path, routine_path, ricorda_path):
+# def app_to_do(secrets_path, activities_path, routine_path, ricorda_path):
+def app_to_do(generate_access_token, secrets_path, activities_path, routine_path, ricorda_path):
 
-    # access_token = generate_access_token
+    access_token = generate_access_token
 
     with open(secrets_path, "r") as data:
         secrets = json.load(data)
 
     headers = {
-        "Authorization": "Bearer " + secrets["MS_ACCESS_TOKEN"]
-        # "Authorization": "Bearer " + access_token["access_token"]
+        # "Authorization": "Bearer " + secrets["MS_ACCESS_TOKEN"]
+        "Authorization": "Bearer " + access_token["access_token"]
     }
 
     GRAPH_ENDPOINT = "https://graph.microsoft.com/v1.0"
@@ -57,5 +58,5 @@ def app_to_do(secrets_path, activities_path, routine_path, ricorda_path):
 
 
 if __name__ == "__main__":
-    app_to_do("../secrets.json", "../static/activities.json", "../static/routine_task.json", "../static/ricorda_di_task.json")
-    # app_to_do(gtk.generate_access_token("api_token_access.json"), "../static/activities.json", "../static/routine_task.json", "../static/ricorda_di_task.json")
+    # app_to_do("../secrets.json", "../static/activities.json", "../static/routine_task.json", "../static/ricorda_di_task.json")
+    app_to_do(gtk.generate_access_token("api_token_access.json"), "../secrets.json", "../static/activities.json", "../static/routine_task.json", "../static/ricorda_di_task.json")
