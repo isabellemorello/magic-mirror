@@ -5,7 +5,7 @@ from random import randint
 import google_calendar.calendar_google as gc
 import microsoft_to_do_list.to_do_list as to_do
 # import microsoft_to_do_list.ms_graph_token as graph_token
-import open_weather_map.open_weather_map as open_weather
+# import open_weather_map.open_weather_map as open_weather
 import static.quotes as quotes
 from models.calendar_model import Calendar
 from models.to_do_list_model import ToDoList
@@ -266,7 +266,7 @@ if __name__ == "__main__":
         # calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
         # microsoft_task = to_do.app_to_do(activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
         # microsoft_task = to_do.app_to_do(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json"), activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
-        open_weather_map = open_weather.app_weather("static/weather_one_call.json", "secrets.json")
+        # open_weather_map = open_weather.app_weather("static/weather_one_call.json", "secrets.json")
 
     except Exception as e:
         print(e)

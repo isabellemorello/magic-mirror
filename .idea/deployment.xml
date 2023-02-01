@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="isabelle@192.168.198.251:22 password" createEmptyFolders="true" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+    <option name="confirmBeforeUploading" value="false" />
     <serverData>
       <paths name="isabelle@192.168.1.136:22 password (2)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/isabelle/Desktop/magic-mirror" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="isabelle@192.168.198.251:22 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/isabelle/Desktop/magic-mirror" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="isabelle@192.168.198.251:22 password (2)">
         <serverdata>
           <mappings>
             <mapping deploy="/home/isabelle/Desktop/magic-mirror" local="$PROJECT_DIR$" />
