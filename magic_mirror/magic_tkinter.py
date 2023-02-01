@@ -85,6 +85,12 @@ def app():
         u.close()
         return raw_data
 
+    is_routine_checked = BooleanVar()
+
+
+    def change_check_status(to_do_list_checked):
+        # to_do_list_checked = not to_do_list_checked
+        print(f"Clicked: {to_do_list_checked.get()}")
 
     # ----------------------------------------------------------------------------------------------------------
     # -------------------------------------------------- GUI ---------------------------------------------------
@@ -146,7 +152,7 @@ def app():
     routine_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
 
     for i in range(len(routine_list)):
-        routine_label = Label(frame5, text=f"☐   {routine_list[i]}", fg="white", bg="black", font=("Arial", 15))
+        routine_label = Checkbutton(frame5, variable=is_routine_checked, onvalue=True, offvalue=False, command=lambda: change_check_status(is_routine_checked), highlightthickness=0, text=f"︎   {routine_list[i]}", fg="white", bg="black", font=("Arial", 15))
         i += 1
         routine_label.grid(row=1+i, column=0, sticky="w")
 
@@ -243,9 +249,9 @@ if __name__ == "__main__":
         # temperature = read_temp("static/temperature.json")
         # while temperature == None:
         #     temperature = read_temp("static/temperature.json")
-        calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
+        # calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
         # microsoft_task = to_do.app_to_do(secrets_path="secrets.json", activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
-        microsoft_task = to_do.app_to_do(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json", "secrets.json"), secrets_path="secrets.json", activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
+        # microsoft_task = to_do.app_to_do(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json", "secrets.json"), secrets_path="secrets.json", activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
         open_weather_map = open_weather.app_weather(weather_path="static/weather_one_call.json", secrets_path="secrets.json")
     except Exception as e:
         print(type(e), e)
