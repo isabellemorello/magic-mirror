@@ -2,10 +2,8 @@ from __future__ import print_function
 
 import json
 
-import requests
-
 import datetime
-import os
+import os.path
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -21,7 +19,7 @@ def main(calendar_events_path, credentials):
     creds = None
 
     if os.path.exists("token.json"):
-        credit = Credentials.from_authorized_user_file("token.json", SCOPES)
+        creds = Credentials.from_authorized_user_file("token.json", SCOPES)
 
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
