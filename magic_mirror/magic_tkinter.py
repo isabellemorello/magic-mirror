@@ -249,7 +249,7 @@ if __name__ == "__main__":
         # temperature = read_temp("static/temperature.json")
         # while temperature == None:
         #     temperature = read_temp("static/temperature.json")
-        # calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
+        calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
         # microsoft_task = to_do.app_to_do(secrets_path="secrets.json", activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
         # microsoft_task = to_do.app_to_do(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json", "secrets.json"), secrets_path="secrets.json", activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
         open_weather_map = open_weather.app_weather(weather_path="static/weather_one_call.json", secrets_path="secrets.json")
