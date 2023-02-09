@@ -1,4 +1,5 @@
 from tkinter import *
+import customtkinter
 import datetime as dt
 import locale
 from random import randint
@@ -29,8 +30,8 @@ def app():
     date = now.strftime("%A, %d %B")
     # size = 14
     calendar_m = Calendar("static/calendar_events.json")
-    routine_list = ToDoList("static/routine_task.json").title_list
-    ricorda_di_list = ToDoList("static/ricorda_di_task.json").title_list
+    routine_list = ToDoList("static/routine_task.json").task
+    ricorda_di_list = ToDoList("static/ricorda_di_task.json").task
     weather_data = "static/weather_one_call.json"
 
     weather = Weather(weather_data)
@@ -43,7 +44,6 @@ def app():
     room_temperature = Temperature("static/temperature.json").get_temperature()
     print(f"La temperatura della stanza è: {room_temperature}")
 
-    is_ricorda_di_checked = False
 
     # ------------------------------------------ Tkinter WINDOW -------------------------------------------------
     window = Tk()
@@ -54,8 +54,6 @@ def app():
     window.columnconfigure(0, weight=1)
     window.columnconfigure(1, weight=1)
     window.columnconfigure(2, weight=1)
-
-    is_routine_checked = BooleanVar()
 
     # -------------------------------------------- FUNCTIONS -------------------------------------------------
     def clock_func():
@@ -143,40 +141,81 @@ def app():
     calendar_title_label = Label(frame4, text="Calendario:", fg="white", bg="black", font=("Arial", 15, "bold"))
     calendar_title_label.grid(row=0, column=0, pady=(0, 5), sticky="w")
 
-    for i in range(0, 4):
+    for counter in range(0, 4):
         frame_c = Frame(frame4, background="black")
-        frame_c.grid(row=1 + i, column=0, sticky="w", pady=(0, 20), padx=(0, 5))
+        frame_c.grid(row=1 + counter, column=0, sticky="w", pady=(0, 20), padx=(0, 5))
 
         frame_c1 = Frame(frame4, background="black")
-        frame_c1.grid(row=1 + i, column=1, sticky="w", pady=(0, 5), padx=(20, 0))
+        frame_c1.grid(row=1 + counter, column=1, sticky="w", pady=(0, 5), padx=(20, 0))
 
-        number_c = Label(frame_c, text=calendar_m.date_number[i], fg="white", bg="black", font=("Arial", 20))
+        number_c = Label(frame_c, text=calendar_m.date_number[counter], fg="white", bg="black", font=("Arial", 20))
         number_c.grid(row=0, column=0, sticky="nw")
-        day_c = Label(frame_c, text=f" / {calendar_m.month[i]}  {calendar_m.weekday[i]}", fg="white", bg="black", font=("Arial", 15))
+        day_c = Label(frame_c, text=f" / {calendar_m.month[counter]}  {calendar_m.weekday[counter]}", fg="white", bg="black", font=("Arial", 15))
         day_c.grid(row=0, column=1, sticky="nw")
-        hour_c = Label(frame_c, text=calendar_m.hour[i], fg="white", bg="black", font=("Arial", 15), anchor="w")
+        hour_c = Label(frame_c, text=calendar_m.hour[counter], fg="white", bg="black", font=("Arial", 15), anchor="w")
         hour_c.grid(row=1, column=1, sticky="wesn", columnspan=2)
-        name_c = Label(frame_c1, text=calendar_m.name[i], fg="white", bg="black", wraplength=200, font=("Arial", 15), anchor="w")
+        name_c = Label(frame_c1, text=calendar_m.name[counter], fg="white", bg="black", wraplength=200, font=("Arial", 15), anchor="w")
         name_c.grid(row=1, column=0, sticky="wesn", rowspan=2)
 
 
     # -------------------------------------------------- To Do List ---------------------------------------------------
     routine_title_label = Label(frame5, text="Routine:", fg="white", bg="black", font=("Arial", 15, "bold"))
     routine_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
+    font_normal = ("Arial", 20, "normal")
+    font_done = ("Arial", 20, "overstrike")
+    my_ref = {}
 
-    for i in range(len(routine_list)):
-        routine_label = Checkbutton(frame5, variable=is_routine_checked, onvalue=True, offvalue=False, command=lambda: change_check_status(is_routine_checked), highlightthickness=0, text=f"︎   {routine_list[i]}", fg="white", bg="black", font=("Arial", 15))
-        # routine_label = Checkbutton(frame5, command=lambda :change_check_status(is_routine_checked), highlightthickness=0, highlightbackground="black", text=f"{check_to_do_text(is_routine_checked)}︎   {routine_list[i]}", fg="white", bg="black", font=("Arial", 15))
-        i += 1
-        routine_label.grid(row=1+i, column=0, sticky="w")
+    def change_style(value):
+        if value == "notStarted":
+            routine_label.configure(text_color="white", font=font_normal)
+        elif value == "completed":
+            routine_label.configure(text_color="pink", font=font_done)
+
+    def change_check_status(checkbtn, var, key):
+        if var.get() == "completed":
+            routine_list[key] = var.get()
+            checkbtn.configure(font=font_done, fg_color="pink", text_color="pink")
+        else:
+            routine_list[key] = var.get()
+            checkbtn.configure(font=font_normal, fg_color="white", text_color="white")
+        print(f"Clicked: {var.get()}")
+        print(routine_list.values())
+        # to_do_list.patch_method(key, routine_list[key])
+
+
+    counter = 0
+    for key, value in routine_list.items():
+        is_routine_checked = StringVar()
+        is_routine_checked.set(value)
+        routine_label = customtkinter.CTkCheckBox(frame5, variable=is_routine_checked, onvalue="completed",
+                                                  offvalue="notStarted", command=lambda k=key: change_check_status(
+                var=my_ref[k][1], checkbtn=my_ref[k][0], key=k), text=f"︎   {key}", fg_color="white",
+                                                  text_color="white", bg_color="black", font=font_normal)
+        change_style(is_routine_checked.get())
+        counter += 1
+        routine_label.grid(row=1 + counter, column=0, sticky="w", pady=5)
+        my_ref[key] = [routine_label, is_routine_checked]
+
 
     ricorda_title_label = Label(frame6, text="Ricorda di:", fg="white", bg="black", font=("Arial", 15, "bold"))
     ricorda_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
 
-    for i in range(len(ricorda_di_list)):
-        ricorda_di_label = Label(frame6, text=f"☒   {ricorda_di_list[i]}", fg="white", bg="black", font=("Arial", 15))
-        i += 1
-        ricorda_di_label.grid(row=1+i, column=0, sticky="w")
+    counter2 = 0
+    for key, value in ricorda_di_list.items():
+        is_ricorda_di_checked = StringVar()
+        is_ricorda_di_checked.set(value)
+        routine_label = customtkinter.CTkCheckBox(frame6, variable=is_ricorda_di_checked, onvalue="completed",
+                                                  offvalue="notStarted", command=lambda k=key: change_check_status(
+                var=my_ref[k][1], checkbtn=my_ref[k][0], key=k), text=f"︎   {key}", fg_color="white",
+                                                  text_color="white", bg_color="black", font=font_normal)
+        change_style(is_ricorda_di_checked.get())
+        counter2 += 1
+        routine_label.grid(row=1 + counter2, column=0, sticky="w", pady=5)
+        my_ref[key] = [routine_label, is_ricorda_di_checked]
+    # for i in range(len(ricorda_di_list)):
+    #     ricorda_di_label = Label(frame6, text=f"☒   {ricorda_di_list[i]}", fg="white", bg="black", font=("Arial", 15))
+    #     i += 1
+    #     ricorda_di_label.grid(row=1+i, column=0, sticky="w")
 
 
     # -------------------------------------------------- Meteo ---------------------------------------------------
@@ -263,7 +302,7 @@ if __name__ == "__main__":
         temperature = read_temp("static/temperature.json")
         while temperature == None:
             temperature = read_temp("static/temperature.json")
-        calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
+        # calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
     #     # microsoft_task = to_do.app_to_do(activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
     #     # microsoft_task = to_do.app_to_do(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json"), activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
     #     # open_weather_map = open_weather.app_weather("static/weather_one_call.json", "secrets.json")
