@@ -165,33 +165,34 @@ def app():
     font_done = ("Arial", 20, "overstrike")
     my_ref = {}
 
-    def change_style(value):
+    def change_style(value, label):
         if value == "notStarted":
-            routine_label.configure(text_color="white", font=font_normal)
+            label.configure(text_color="white", font=font_normal)
         elif value == "completed":
-            routine_label.configure(text_color="pink", font=font_done)
+            label.configure(text_color="pink", font=font_done)
 
-    def change_check_status(checkbtn, var, key):
+    def change_check_status(checkbtn, var, key, list):
         if var.get() == "completed":
-            routine_list[key] = var.get()
+            list[key] = var.get()
             checkbtn.configure(font=font_done, fg_color="pink", text_color="pink")
         else:
-            routine_list[key] = var.get()
+            list[key] = var.get()
             checkbtn.configure(font=font_normal, fg_color="white", text_color="white")
         print(f"Clicked: {var.get()}")
-        print(routine_list.values())
+        print(list.values())
         # to_do_list.patch_method(key, routine_list[key])
 
 
     counter = 0
+
     for key, value in routine_list.items():
         is_routine_checked = StringVar()
         is_routine_checked.set(value)
         routine_label = customtkinter.CTkCheckBox(frame5, variable=is_routine_checked, onvalue="completed",
                                                   offvalue="notStarted", command=lambda k=key: change_check_status(
-                var=my_ref[k][1], checkbtn=my_ref[k][0], key=k), text=f"︎   {key}", fg_color="white",
+                var=my_ref[k][1], checkbtn=my_ref[k][0], key=k, list=routine_list), text=f"︎   {key}", fg_color="white",
                                                   text_color="white", bg_color="black", font=font_normal)
-        change_style(is_routine_checked.get())
+        change_style(is_routine_checked.get(), routine_label)
         counter += 1
         routine_label.grid(row=1 + counter, column=0, sticky="w", pady=5)
         my_ref[key] = [routine_label, is_routine_checked]
@@ -204,14 +205,16 @@ def app():
     for key, value in ricorda_di_list.items():
         is_ricorda_di_checked = StringVar()
         is_ricorda_di_checked.set(value)
-        routine_label = customtkinter.CTkCheckBox(frame6, variable=is_ricorda_di_checked, onvalue="completed",
+        ricorda_di_label = customtkinter.CTkCheckBox(frame6, variable=is_ricorda_di_checked, onvalue="completed",
                                                   offvalue="notStarted", command=lambda k=key: change_check_status(
-                var=my_ref[k][1], checkbtn=my_ref[k][0], key=k), text=f"︎   {key}", fg_color="white",
+                var=my_ref[k][1], checkbtn=my_ref[k][0], key=k, list=ricorda_di_list), text=f"︎   {key}", fg_color="white",
                                                   text_color="white", bg_color="black", font=font_normal)
-        change_style(is_ricorda_di_checked.get())
+        change_style(is_ricorda_di_checked.get(), ricorda_di_label)
         counter2 += 1
-        routine_label.grid(row=1 + counter2, column=0, sticky="w", pady=5)
-        my_ref[key] = [routine_label, is_ricorda_di_checked]
+        ricorda_di_label.grid(row=1 + counter2, column=0, sticky="w", pady=5)
+        my_ref[key] = [ricorda_di_label, is_ricorda_di_checked]
+
+
     # for i in range(len(ricorda_di_list)):
     #     ricorda_di_label = Label(frame6, text=f"☒   {ricorda_di_list[i]}", fg="white", bg="black", font=("Arial", 15))
     #     i += 1
