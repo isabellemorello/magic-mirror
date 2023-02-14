@@ -173,4 +173,5 @@ magic_mirror/google_calendar/credentials.json
 magic_mirror/google_calendar/token.json
 magic_mirror/microsoft_to_do_list/api_token_access.json
 
+magic_mirror/prova_todo_checkbox.py
 # End of https://www.toptal.com/developers/gitignore/api/python

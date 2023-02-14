@@ -6,7 +6,7 @@ from random import randint
 import google_calendar.calendar_google as gc
 import microsoft_to_do_list.to_do_list as to_do
 # import microsoft_to_do_list.ms_graph_token as graph_token
-# import open_weather_map.open_weather_map as open_weather
+import open_weather_map.open_weather_map as open_weather
 import static.quotes as quotes
 from models.calendar_model import Calendar
 from models.to_do_list_model import ToDoList
@@ -28,12 +28,15 @@ def app():
     now = dt.datetime.now()
     clock = now.strftime("%H:%M:%S")
     date = now.strftime("%A, %d %B")
-    # size = 14
     calendar_m = Calendar("static/calendar_events.json")
-    routine_list = ToDoList("static/routine_task.json").task
-    ricorda_di_list = ToDoList("static/ricorda_di_task.json").task
-    weather_data = "static/weather_one_call.json"
+    get_routine = to_do.get_method(secrets_path="secrets.json", activities_path="static/activities.json", path="static/routine_task.json", task="ID_ROUTINE_TASK")
+    get_ricorda = to_do.get_method(secrets_path="secrets.json", activities_path="static/activities.json", path="static/ricorda_di_task.json", task="ID_RICORDA_DI_TASK")
+    routine_list = ToDoList(get_routine).task
+    ricorda_di_list = ToDoList(get_ricorda).task
+    # routine_list = ToDoList("static/routine_task.json").task
+    # ricorda_di_list = ToDoList("static/ricorda_di_task.json").task
 
+    weather_data = "static/weather_one_call.json"
     weather = Weather(weather_data)
     icon = weather.icon
     daily_icons = weather.daily_icon
@@ -103,6 +106,24 @@ def app():
         print(f"Clicked: {to_do_list_checked.get()}")
 
 
+    def change_style(value, label):
+        if value == "notStarted":
+            label.configure(text_color="white", font=font_normal)
+        elif value == "completed":
+            label.configure(text_color="pink", font=font_done)
+
+    def change_check_status(checkbtn, var, key, list, id_task):
+        if var.get() == "completed":
+            list[key][1] = var.get()
+            checkbtn.configure(font=font_done, fg_color="pink", text_color="pink")
+        else:
+            list[key][1] = var.get()
+            checkbtn.configure(font=font_normal, fg_color="white", text_color="white")
+        print(f"Clicked: {var.get()}")
+        print(list.values())
+        to_do.patch_method(title=key, status_value=list[key][1], secrets_path="secrets.json", task=list, task_list=id_task)
+
+
     # ----------------------------------------------------------------------------------------------------------
     # -------------------------------------------------- GUI ---------------------------------------------------
     frame1 = Frame(window, background="black")
@@ -165,32 +186,17 @@ def app():
     font_done = ("Arial", 20, "overstrike")
     my_ref = {}
 
-    def change_style(value, label):
-        if value == "notStarted":
-            label.configure(text_color="white", font=font_normal)
-        elif value == "completed":
-            label.configure(text_color="pink", font=font_done)
 
-    def change_check_status(checkbtn, var, key, list):
-        if var.get() == "completed":
-            list[key] = var.get()
-            checkbtn.configure(font=font_done, fg_color="pink", text_color="pink")
-        else:
-            list[key] = var.get()
-            checkbtn.configure(font=font_normal, fg_color="white", text_color="white")
-        print(f"Clicked: {var.get()}")
-        print(list.values())
-        # to_do_list.patch_method(key, routine_list[key])
 
 
     counter = 0
-
-    for key, value in routine_list.items():
+    for key, v in routine_list.items():
+        value = v[1]
         is_routine_checked = StringVar()
         is_routine_checked.set(value)
         routine_label = customtkinter.CTkCheckBox(frame5, variable=is_routine_checked, onvalue="completed",
                                                   offvalue="notStarted", command=lambda k=key: change_check_status(
-                var=my_ref[k][1], checkbtn=my_ref[k][0], key=k, list=routine_list), text=f"︎   {key}", fg_color="white",
+                var=my_ref[k][1], checkbtn=my_ref[k][0], key=k, list=routine_list, id_task="ID_ROUTINE_TASK"), text=f"︎   {key}", fg_color="white",
                                                   text_color="white", bg_color="black", font=font_normal)
         change_style(is_routine_checked.get(), routine_label)
         counter += 1
@@ -207,18 +213,12 @@ def app():
         is_ricorda_di_checked.set(value)
         ricorda_di_label = customtkinter.CTkCheckBox(frame6, variable=is_ricorda_di_checked, onvalue="completed",
                                                   offvalue="notStarted", command=lambda k=key: change_check_status(
-                var=my_ref[k][1], checkbtn=my_ref[k][0], key=k, list=ricorda_di_list), text=f"︎   {key}", fg_color="white",
+                var=my_ref[k][1], checkbtn=my_ref[k][0], key=k, list=ricorda_di_list, id_task="ID_RICORDA_DI_TASK"), text=f"︎   {key}", fg_color="white",
                                                   text_color="white", bg_color="black", font=font_normal)
         change_style(is_ricorda_di_checked.get(), ricorda_di_label)
         counter2 += 1
         ricorda_di_label.grid(row=1 + counter2, column=0, sticky="w", pady=5)
         my_ref[key] = [ricorda_di_label, is_ricorda_di_checked]
-
-
-    # for i in range(len(ricorda_di_list)):
-    #     ricorda_di_label = Label(frame6, text=f"☒   {ricorda_di_list[i]}", fg="white", bg="black", font=("Arial", 15))
-    #     i += 1
-    #     ricorda_di_label.grid(row=1+i, column=0, sticky="w")
 
 
     # -------------------------------------------------- Meteo ---------------------------------------------------
@@ -306,9 +306,9 @@ if __name__ == "__main__":
         while temperature == None:
             temperature = read_temp("static/temperature.json")
         # calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
-    #     # microsoft_task = to_do.app_to_do(activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
+        # microsoft_task = to_do.get_method(secrets_path="secrets.json", activities_path="static/activities.json", path="static/routine_task.json", task="ID_ROUTINE_TASK")
     #     # microsoft_task = to_do.app_to_do(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json"), activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
-    #     # open_weather_map = open_weather.app_weather("static/weather_one_call.json", "secrets.json")
+        open_weather_map = open_weather.app_weather("static/weather_one_call.json", "secrets.json")
     #
     except Exception as e:
         print(e)
