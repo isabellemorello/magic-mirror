@@ -5,7 +5,7 @@ import locale
 from random import randint
 import google_calendar.calendar_google as gc
 import microsoft_to_do_list.to_do_list as to_do
-# import microsoft_to_do_list.ms_graph_token as graph_token
+import microsoft_to_do_list.ms_graph_token as graph_token
 import open_weather_map.open_weather_map as open_weather
 import static.quotes as quotes
 from models.calendar_model import Calendar
@@ -23,14 +23,16 @@ if os.environ.get('DISPLAY', '') == '':
 locale.setlocale(locale.LC_ALL, 'it_IT')
 
 
-def app():
+def app(microsoft_task_routine, microsoft_task_ricorda):
     # --------------------------------------------- VARIABLES ----------------------------------------------------
     now = dt.datetime.now()
     clock = now.strftime("%H:%M:%S")
     date = now.strftime("%A, %d %B")
     calendar_m = Calendar("static/calendar_events.json")
-    get_routine = to_do.get_method(secrets_path="secrets.json", activities_path="static/activities.json", path="static/routine_task.json", task="ID_ROUTINE_TASK")
-    get_ricorda = to_do.get_method(secrets_path="secrets.json", activities_path="static/activities.json", path="static/ricorda_di_task.json", task="ID_RICORDA_DI_TASK")
+    get_routine = microsoft_task_routine
+    get_ricorda = microsoft_task_ricorda
+    # get_routine = to_do.get_method(secrets_path="secrets.json", activities_path="static/activities.json", path="static/routine_task.json", task="ID_ROUTINE_TASK")
+    # get_ricorda = to_do.get_method(secrets_path="secrets.json", activities_path="static/activities.json", path="static/ricorda_di_task.json", task="ID_RICORDA_DI_TASK")
     routine_list = ToDoList(get_routine).task
     ricorda_di_list = ToDoList(get_ricorda).task
     # routine_list = ToDoList("static/routine_task.json").task
@@ -44,8 +46,7 @@ def app():
     weekday_count = 0
     weekday = ""
     # room_temperature = 16
-    room_temperature = Temperature("static/temperature.json").get_temperature()
-    print(f"La temperatura della stanza è: {room_temperature}")
+    room_temperature = Temperature("static/temperature.json").temperature
 
 
     # ------------------------------------------ Tkinter WINDOW -------------------------------------------------
@@ -90,27 +91,12 @@ def app():
         return raw_data
 
 
-    def check_to_do_text(to_do_list_checked):
-        bool = to_do_list_checked.get()
-        if bool:
-            check = "☑︎"
-            print("è flaggato")
-        else:
-            check = "☐"
-            print("non è flaggato")
-        return check
-
-
-    def change_check_status(to_do_list_checked):
-        # to_do_list_checked = not to_do_list_checked
-        print(f"Clicked: {to_do_list_checked.get()}")
-
-
     def change_style(value, label):
         if value == "notStarted":
             label.configure(text_color="white", font=font_normal)
         elif value == "completed":
             label.configure(text_color="pink", font=font_done)
+
 
     def change_check_status(checkbtn, var, key, list, id_task):
         if var.get() == "completed":
@@ -121,7 +107,7 @@ def app():
             checkbtn.configure(font=font_normal, fg_color="white", text_color="white")
         print(f"Clicked: {var.get()}")
         print(list.values())
-        to_do.patch_method(title=key, status_value=list[key][1], secrets_path="secrets.json", task=list, task_list=id_task)
+        to_do.patch_method(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json", "secrets.json"), title=key, status_value=list[key][1], secrets_path="secrets.json", task=list, task_list=id_task)
 
 
     # ----------------------------------------------------------------------------------------------------------
@@ -180,14 +166,13 @@ def app():
 
 
     # -------------------------------------------------- To Do List ---------------------------------------------------
-    routine_title_label = Label(frame5, text="Routine:", fg="white", bg="black", font=("Arial", 15, "bold"))
-    routine_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
     font_normal = ("Arial", 20, "normal")
     font_done = ("Arial", 20, "overstrike")
     my_ref = {}
 
-
-
+    #ROUTINE
+    routine_title_label = Label(frame5, text="Routine:", fg="white", bg="black", font=("Arial", 15, "bold"))
+    routine_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
 
     counter = 0
     for key, v in routine_list.items():
@@ -204,11 +189,13 @@ def app():
         my_ref[key] = [routine_label, is_routine_checked]
 
 
+    # RICORDA DI
     ricorda_title_label = Label(frame6, text="Ricorda di:", fg="white", bg="black", font=("Arial", 15, "bold"))
     ricorda_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
 
     counter2 = 0
-    for key, value in ricorda_di_list.items():
+    for key, v in ricorda_di_list.items():
+        value = v[1]
         is_ricorda_di_checked = StringVar()
         is_ricorda_di_checked.set(value)
         ricorda_di_label = customtkinter.CTkCheckBox(frame6, variable=is_ricorda_di_checked, onvalue="completed",
@@ -306,14 +293,15 @@ if __name__ == "__main__":
         while temperature == None:
             temperature = read_temp("static/temperature.json")
         # calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
-        # microsoft_task = to_do.get_method(secrets_path="secrets.json", activities_path="static/activities.json", path="static/routine_task.json", task="ID_ROUTINE_TASK")
-    #     # microsoft_task = to_do.app_to_do(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json"), activities_path="static/activities.json", routine_path="static/routine_task.json", ricorda_path="static/ricorda_di_task.json")
+        microsoft_task_routine = to_do.get_method(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json", "secrets.json"), secrets_path="secrets.json", activities_path="static/activities.json", path="static/routine_task.json", task="ID_ROUTINE_TASK")
+        microsoft_task_ricorda = to_do.get_method(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json", "secrets.json"), secrets_path="secrets.json", activities_path="static/activities.json", path="static/ricorda_di_task.json", task="ID_RICORDA_DI_TASK")
         open_weather_map = open_weather.app_weather("static/weather_one_call.json", "secrets.json")
     #
     except Exception as e:
         print(e)
     else:
-        app()
+        app(microsoft_task_routine, microsoft_task_ricorda)
+
     # temperature = read_temp("static/temperature.json")
     # while temperature == None:
     #     temperature = read_temp("static/temperature.json")

@@ -1,19 +1,20 @@
 import requests
 import json
 # from ..models.to_do_list_model import ToDoList
-# import microsoft_to_do_list.ms_graph_token as gtk
+# import ms_graph_token as gtk
+import microsoft_to_do_list.ms_graph_token as gtk
 
-def get_method(secrets_path, activities_path, path, task):
-# def app_to_do(generate_access_token, activities_path, routine_path, ricorda_path):
+# def get_method(secrets_path, activities_path, path, task):
+def get_method(generate_access_token, secrets_path, activities_path, path, task):
 
-    # access_token = generate_access_token
+    access_token = generate_access_token
 
     with open(secrets_path, "r") as data:
         secrets = json.load(data)
 
     headers = {
-        "Authorization": "Bearer " + secrets["MS_ACCESS_TOKEN"]
-        # "Authorization": "Bearer " + access_token["access_token"]
+        # "Authorization": "Bearer " + secrets["MS_ACCESS_TOKEN"]
+        "Authorization": "Bearer " + access_token["access_token"]
     }
 
     GRAPH_ENDPOINT = "https://graph.microsoft.com/v1.0"
@@ -36,7 +37,7 @@ def get_method(secrets_path, activities_path, path, task):
     print(f"Status: {response_task.status_code}")
     if response_task.status_code == 200:
         list_task = response_task.json()
-        # print(list_task)
+        print(list_task)
         with open(path, "w") as _f:
             json.dump(list_task, _f, indent=4)
         return list_task
@@ -45,12 +46,12 @@ def get_method(secrets_path, activities_path, path, task):
 
 
 
-def patch_method(title, status_value, secrets_path, task, task_list):
-    # access_token = generate_access_token(app_id=APP_ID, scopes=SCOPES)
+def patch_method(generate_access_token, title, status_value, secrets_path, task, task_list):
+    access_token = generate_access_token
     with open(secrets_path, "r") as data:
         secrets = json.load(data)
     task = task
-    # with open(task_path, "r") as data:
+    # with open(task, "r") as data:
     #     task = json.load(data)
     task_id = ""
     status = ""
@@ -59,9 +60,10 @@ def patch_method(title, status_value, secrets_path, task, task_list):
         if k == title:
             task_id = v[0]
             status = status_value
-    print("ID:", task_id)
+    print("ID",title, ":", task_id)
     headers = {
-        "Authorization": "Bearer " + secrets["MS_ACCESS_TOKEN"],
+        # "Authorization": "Bearer " + secrets["MS_ACCESS_TOKEN"],
+        "Authorization": "Bearer " + access_token["access_token"],
         "Content-Type": "application/json"
     }
     data = {
@@ -73,11 +75,10 @@ def patch_method(title, status_value, secrets_path, task, task_list):
     print(f"Status: {response_task.status_code}")
 
 if __name__ == "__main__":
-    pass
+    ricorda = get_method(gtk.generate_access_token("api_token_access.json", "../secrets.json"), "../secrets.json", "../static/activities.json", "../static/ricorda_di_task.json", "ID_RICORDA_DI_TASK")
+    print(ricorda)
     # ricorda = get_method("../secrets.json", "../static/activities.json", "../static/ricorda_di_task.json", "ID_RICORDA_DI_TASK")
     # print(ricorda)
-    # ricorda = get_method("../secrets.json", "../static/activities.json", "../static/ricorda_di_task.json", "ID_RICORDA_DI_TASK")
-    # print(ricorda)
-    # patch_method(title="Aggiungere colore eventi Google", status_value="completed", secrets_path="../secrets.json", task=ricorda, task_list="ID_RICORDA_DI_TASK")
+    patch_method(generate_access_token=gtk.generate_access_token("api_token_access.json", "../secrets.json"), title="Webcam", status_value="completed", secrets_path="../secrets.json", task=ricorda, task_list="ID_RICORDA_DI_TASK")
 
     # app_to_do(gtk.generate_access_token("api_token_access.json"), "../static/activities.json", "../static/routine_task.json", "../static/ricorda_di_task.json")

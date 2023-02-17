@@ -19,7 +19,7 @@ class ToDoList:
 
     def get_title(self):
         titles = self.get_list()
-        title_list = [title["title"] for title in titles if title["status"]]
+        title_list = [title["title"] for title in titles]
         # title_list = [title["title"] for title in titles if title["status"] != "completed"]
         return title_list
 
@@ -37,17 +37,15 @@ class ToDoList:
         new_list = []
         id_list = self.get_id()
         status_list = self.get_status()
-        for id in id_list:
-            for status in status_list:
-                new_list.append([id, status])
-        return  new_list
+        for n in range(len(id_list)):
+            new_list.append([id_list[n], status_list[n]])
+        return new_list
 
     def get_task(self):
         # new_dic = dict(zip(self.title_list, self.status_list))
-        # new_dic = {self.title_list[i] : self.status_list[i] for i in range(len(self.title_list))}
+        # new_dic = {self.title_list[i] : self.id_status_list[i] for i in range(len(self.title_list))}
         new_dic = {key: value for (key, value) in zip(self.title_list, self.id_status_list)}
-
         return new_dic
 
-# td = ToDoList("../static/routine_task.json")
-# print(td.get_list())
+# td = ToDoList("../static/ricorda_di_task.json")
+# print(td.title_list)
