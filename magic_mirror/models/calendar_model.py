@@ -6,8 +6,8 @@ import json
 # locale.setlocale(locale.LC_ALL, 'it_IT')
 
 class Calendar:
-    def __init__(self, calendar_path):
-        self.calendar = calendar_path
+    def __init__(self, calendar):
+        self.calendar = calendar
         self.name = self.get_name()
         self.date = self.get_date()
         self.date_number = self.get_date_number()
@@ -17,8 +17,9 @@ class Calendar:
 
 
     def get_name(self):
-        with open(self.calendar, "r") as data_file:
-            event_names = json.load(data_file)
+        # with open(self.calendar, "r") as data_file:
+        #     event_names = json.load(data_file)
+        event_names = self.calendar
         event_name = [ev[1] for ev in event_names]
         # print(event_name)
         return event_name
@@ -26,8 +27,9 @@ class Calendar:
 
     def get_date(self):
         date = []
-        with open(self.calendar, "r") as data_file:
-            event_names = json.load(data_file)
+        # with open(self.calendar, "r") as data_file:
+        #     event_names = json.load(data_file)
+        event_names = self.calendar
         event_date = [ev[0] for ev in event_names]
         # print(event_date)
 
@@ -66,8 +68,9 @@ class Calendar:
 
     def get_hour(self):
         hours = []
-        with open(self.calendar, "r") as data_file:
-            event_names = json.load(data_file)
+        # with open(self.calendar, "r") as data_file:
+        #     event_names = json.load(data_file)
+        event_names = self.calendar
         hour_list = [ev[0] for ev in event_names]
         # print(hour_list)
 

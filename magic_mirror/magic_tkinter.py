@@ -23,12 +23,14 @@ if os.environ.get('DISPLAY', '') == '':
 locale.setlocale(locale.LC_ALL, 'it_IT')
 
 
-def app(microsoft_task_routine, microsoft_task_ricorda):
+def app(calendar, microsoft_task_routine, microsoft_task_ricorda):
     # --------------------------------------------- VARIABLES ----------------------------------------------------
     now = dt.datetime.now()
     clock = now.strftime("%H:%M:%S")
     date = now.strftime("%A, %d %B")
-    calendar_m = Calendar("static/calendar_events.json")
+    get_calendar = calendar
+    calendar_m = Calendar(get_calendar)
+    # calendar_m = Calendar("static/calendar_events.json")
     get_routine = microsoft_task_routine
     get_ricorda = microsoft_task_ricorda
     # get_routine = to_do.get_method(secrets_path="secrets.json", activities_path="static/activities.json", path="static/routine_task.json", task="ID_ROUTINE_TASK")
@@ -292,7 +294,7 @@ if __name__ == "__main__":
         temperature = read_temp("static/temperature.json")
         while temperature == None:
             temperature = read_temp("static/temperature.json")
-        # calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
+        calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
         microsoft_task_routine = to_do.get_method(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json", "secrets.json"), secrets_path="secrets.json", activities_path="static/activities.json", path="static/routine_task.json", task="ID_ROUTINE_TASK")
         microsoft_task_ricorda = to_do.get_method(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json", "secrets.json"), secrets_path="secrets.json", activities_path="static/activities.json", path="static/ricorda_di_task.json", task="ID_RICORDA_DI_TASK")
         open_weather_map = open_weather.app_weather("static/weather_one_call.json", "secrets.json")
@@ -300,7 +302,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(e)
     else:
-        app(microsoft_task_routine, microsoft_task_ricorda)
+        app(calendar_ev, microsoft_task_routine, microsoft_task_ricorda)
 
     # temperature = read_temp("static/temperature.json")
     # while temperature == None:

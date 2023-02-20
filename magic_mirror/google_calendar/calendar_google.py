@@ -56,6 +56,7 @@ def main(calendar_events_path, credentials):
         #     json.dump(events, calendar, indent=4)
         with open(calendar_events_path, "w") as calendar:
             json.dump(event_date_summary, calendar, indent=4)
+        return event_date_summary
 
     except HttpError as error:
         print('An error occurred: %s' % error)
