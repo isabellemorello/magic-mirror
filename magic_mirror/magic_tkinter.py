@@ -1,3 +1,4 @@
+import time
 from tkinter import *
 import customtkinter
 import datetime as dt
@@ -23,24 +24,31 @@ if os.environ.get('DISPLAY', '') == '':
 locale.setlocale(locale.LC_ALL, 'it_IT')
 
 
-def app(calendar, microsoft_task_routine, microsoft_task_ricorda):
+# def app():
+def app(microsoft_task_routine, microsoft_task_ricorda):
+# def app(calendar, microsoft_task_routine, microsoft_task_ricorda):
     # --------------------------------------------- VARIABLES ----------------------------------------------------
     now = dt.datetime.now()
     clock = now.strftime("%H:%M:%S")
     date = now.strftime("%A, %d %B")
-    get_calendar = calendar
-    calendar_m = Calendar(get_calendar)
-    # calendar_m = Calendar("static/calendar_events.json")
+    # get_calendar = calendar
+    # calendar_m = Calendar(get_calendar)
+    calendar_m = Calendar("static/calendar_events.json")
+
     get_routine = microsoft_task_routine
     get_ricorda = microsoft_task_ricorda
+
     # get_routine = to_do.get_method(secrets_path="secrets.json", activities_path="static/activities.json", path="static/routine_task.json", task="ID_ROUTINE_TASK")
     # get_ricorda = to_do.get_method(secrets_path="secrets.json", activities_path="static/activities.json", path="static/ricorda_di_task.json", task="ID_RICORDA_DI_TASK")
+
     routine_list = ToDoList(get_routine).task
     ricorda_di_list = ToDoList(get_ricorda).task
+
     # routine_list = ToDoList("static/routine_task.json").task
     # ricorda_di_list = ToDoList("static/ricorda_di_task.json").task
 
     weather_data = "static/weather_one_call.json"
+    # weather_data = open_weather_data
     weather = Weather(weather_data)
     icon = weather.icon
     daily_icons = weather.daily_icon
@@ -54,7 +62,8 @@ def app(calendar, microsoft_task_routine, microsoft_task_ricorda):
     # ------------------------------------------ Tkinter WINDOW -------------------------------------------------
     window = Tk()
     window.title("Isabelle's Magic Mirror")
-    window.geometry("1400x750")
+    window.geometry(f"{window.winfo_screenwidth()}x{window.winfo_screenheight()}")
+    # window.geometry("1400x750")
     window.config(bg="black", padx=25, pady=25)
 
     window.columnconfigure(0, weight=1)
@@ -132,7 +141,7 @@ def app(calendar, microsoft_task_routine, microsoft_task_ricorda):
     date_label = Label(frame2, text=date, fg="white", bg="black", font=("Arial", 20, "normal"))
     date_label.grid(row=1, column=0, padx=20, sticky="wesn", pady=(0, 60))
 
-    greet_label = Label(frame2, text="Ciao Isabelle Michelle", fg="white", bg="black", font=("Arial", 20, "normal"), anchor="center", width=50)
+    greet_label = Label(frame2, text="Ciao Isabelle Michelle", fg="white", bg="black", font=("Arial", 26, "bold"), anchor="center", width=50)
     greet_label.grid(row=2, column=0, padx=50, pady=20)
 
     quote_text_label = Label(frame2, text="", wraplength=500, fg="white", bg="black", justify="center", font=("Arial", 20, "normal"), width=50)
@@ -142,8 +151,17 @@ def app(calendar, microsoft_task_routine, microsoft_task_ricorda):
 
 
     clock_func()
-    window.after(4000, destroy_greet)
-    quote_text_label.after(4025, change_quote)
+    window.after(8000, destroy_greet)
+    quote_text_label.after(8025, change_quote)
+    def refresh():
+        # calendar_ev, microsoft_task_routine, microsoft_task_ricorda, open_weather_map = api_request()
+        microsoft_task_routine, microsoft_task_ricorda, open_weather_map = api_request()
+        window.destroy()
+        app(microsoft_task_routine, microsoft_task_ricorda)
+        # app(calendar_ev, microsoft_task_routine, microsoft_task_ricorda)
+
+    refresh_button  = customtkinter.CTkButton(frame2, text="♻︎ Refresh", compound="left", corner_radius=8, command=refresh, fg_color="pink", text_color="black", font=("Arial", 24, "bold"))
+    refresh_button.grid(row=5, column=0, sticky="s", pady=(window.winfo_screenheight()-500,0), ipady=10, ipadx=30)
 
 
     # -------------------------------------------------- Calendario ---------------------------------------------------
@@ -289,23 +307,43 @@ def app(calendar, microsoft_task_routine, microsoft_task_ricorda):
 
     window.mainloop()
 
+
+def api_request():
+    # calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
+    microsoft_task_routine = to_do.get_method(
+        generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json",
+                                                                "secrets.json"), secrets_path="secrets.json",
+        activities_path="static/activities.json", path="static/routine_task.json", task="ID_ROUTINE_TASK")
+    microsoft_task_ricorda = to_do.get_method(
+        generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json",
+                                                                "secrets.json"), secrets_path="secrets.json",
+        activities_path="static/activities.json", path="static/ricorda_di_task.json", task="ID_RICORDA_DI_TASK")
+    open_weather_map = open_weather.app_weather("static/weather_one_call.json", "secrets.json")
+    return  microsoft_task_routine, microsoft_task_ricorda, open_weather_map
+    # return calendar_ev, microsoft_task_routine, microsoft_task_ricorda, open_weather_map
+
+
 if __name__ == "__main__":
     try:
         temperature = read_temp("static/temperature.json")
         while temperature == None:
             temperature = read_temp("static/temperature.json")
-        calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
-        microsoft_task_routine = to_do.get_method(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json", "secrets.json"), secrets_path="secrets.json", activities_path="static/activities.json", path="static/routine_task.json", task="ID_ROUTINE_TASK")
-        microsoft_task_ricorda = to_do.get_method(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json", "secrets.json"), secrets_path="secrets.json", activities_path="static/activities.json", path="static/ricorda_di_task.json", task="ID_RICORDA_DI_TASK")
-        open_weather_map = open_weather.app_weather("static/weather_one_call.json", "secrets.json")
-    #
+        # calendar_ev, microsoft_task_routine, microsoft_task_ricorda, open_weather_map = api_request()
+        microsoft_task_routine, microsoft_task_ricorda, open_weather_map = api_request()
+        # calendar_ev = gc.main("static/calendar_events.json", "google_calendar/credentials.json")
+        # microsoft_task_routine = to_do.get_method(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json", "secrets.json"), secrets_path="secrets.json", activities_path="static/activities.json", path="static/routine_task.json", task="ID_ROUTINE_TASK")
+        # microsoft_task_ricorda = to_do.get_method(generate_access_token=graph_token.generate_access_token("microsoft_to_do_list/api_token_access.json", "secrets.json"), secrets_path="secrets.json", activities_path="static/activities.json", path="static/ricorda_di_task.json", task="ID_RICORDA_DI_TASK")
+        # open_weather_map = open_weather.app_weather("static/weather_one_call.json", "secrets.json")
+
     except Exception as e:
         print(e)
     else:
-        app(calendar_ev, microsoft_task_routine, microsoft_task_ricorda)
+        # app()
+        app(microsoft_task_routine, microsoft_task_ricorda)
+        # app(calendar_ev, microsoft_task_routine, microsoft_task_ricorda)
 
     # temperature = read_temp("static/temperature.json")
     # while temperature == None:
     #     temperature = read_temp("static/temperature.json")
     # open_weather_map = open_weather.app_weather("static/weather_one_call.json")
-    # app()
+    app()

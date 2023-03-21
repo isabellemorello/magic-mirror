@@ -167,6 +167,7 @@ cython_debug/
 # Poetry local configuration file - https://python-poetry.org/docs/configuration/#local-configuration
 poetry.toml
 
+*.json
 token.json
 magic_mirror/secrets.json
 magic_mirror/google_calendar/credentials.json

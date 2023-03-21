@@ -17,9 +17,9 @@ class Calendar:
 
 
     def get_name(self):
-        # with open(self.calendar, "r") as data_file:
-        #     event_names = json.load(data_file)
-        event_names = self.calendar
+        with open(self.calendar, "r") as data_file:
+            event_names = json.load(data_file)
+        # event_names = self.calendar
         event_name = [ev[1] for ev in event_names]
         # print(event_name)
         return event_name
@@ -27,9 +27,9 @@ class Calendar:
 
     def get_date(self):
         date = []
-        # with open(self.calendar, "r") as data_file:
-        #     event_names = json.load(data_file)
-        event_names = self.calendar
+        with open(self.calendar, "r") as data_file:
+            event_names = json.load(data_file)
+        # event_names = self.calendar
         event_date = [ev[0] for ev in event_names]
         # print(event_date)
 
@@ -68,9 +68,9 @@ class Calendar:
 
     def get_hour(self):
         hours = []
-        # with open(self.calendar, "r") as data_file:
-        #     event_names = json.load(data_file)
-        event_names = self.calendar
+        with open(self.calendar, "r") as data_file:
+            event_names = json.load(data_file)
+        # event_names = self.calendar
         hour_list = [ev[0] for ev in event_names]
         # print(hour_list)
 
