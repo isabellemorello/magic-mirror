@@ -57,6 +57,7 @@ def app(microsoft_task_routine, microsoft_task_ricorda):
     weekday = ""
     # room_temperature = 16
     room_temperature = Temperature("static/temperature.json").temperature
+    is_me = True
 
 
     # ------------------------------------------ Tkinter WINDOW -------------------------------------------------
@@ -93,6 +94,13 @@ def app(microsoft_task_routine, microsoft_task_ricorda):
         """Destroy greet label"""
         greet_label.destroy()
 
+
+    def refresh():
+        # calendar_ev, microsoft_task_routine, microsoft_task_ricorda, open_weather_map = api_request()
+        microsoft_task_routine, microsoft_task_ricorda, open_weather_map = api_request()
+        window.destroy()
+        app(microsoft_task_routine, microsoft_task_ricorda)
+        # app(calendar_ev, microsoft_task_routine, microsoft_task_ricorda)
 
     def weather_icon_f():
         image_url = f"http://openweathermap.org/img/wn/{icon}@2x.png"
@@ -141,7 +149,10 @@ def app(microsoft_task_routine, microsoft_task_ricorda):
     date_label = Label(frame2, text=date, fg="white", bg="black", font=("Arial", 20, "normal"))
     date_label.grid(row=1, column=0, padx=20, sticky="wesn", pady=(0, 60))
 
-    greet_label = Label(frame2, text="Ciao Isabelle Michelle", fg="white", bg="black", font=("Arial", 26, "bold"), anchor="center", width=50)
+    if is_me:
+        greet_label = Label(frame2, text="Ciao Isabelle Michelle! ☻", fg="white", bg="black", font=("Arial", 26, "bold"), anchor="center")
+    else:
+        greet_label = Label(frame2, text="Benvenuto. Sono il Magic Mirror di Isabelle!", wraplength=400, fg="white", bg="black", font=("Arial", 26, "bold"), anchor="center")
     greet_label.grid(row=2, column=0, padx=50, pady=20)
 
     quote_text_label = Label(frame2, text="", wraplength=500, fg="white", bg="black", justify="center", font=("Arial", 20, "normal"), width=50)
@@ -153,36 +164,35 @@ def app(microsoft_task_routine, microsoft_task_ricorda):
     clock_func()
     window.after(8000, destroy_greet)
     quote_text_label.after(8025, change_quote)
-    def refresh():
-        # calendar_ev, microsoft_task_routine, microsoft_task_ricorda, open_weather_map = api_request()
-        microsoft_task_routine, microsoft_task_ricorda, open_weather_map = api_request()
-        window.destroy()
-        app(microsoft_task_routine, microsoft_task_ricorda)
-        # app(calendar_ev, microsoft_task_routine, microsoft_task_ricorda)
 
     refresh_button  = customtkinter.CTkButton(frame2, text="♻︎ Refresh", compound="left", corner_radius=8, command=refresh, fg_color="pink", text_color="black", font=("Arial", 24, "bold"))
-    refresh_button.grid(row=5, column=0, sticky="s", pady=(window.winfo_screenheight()-500,0), ipady=10, ipadx=30)
+    refresh_button.grid(row=5, column=0, sticky="s", pady=(window.winfo_screenheight()-525,0), ipady=10, ipadx=30)
 
 
     # -------------------------------------------------- Calendario ---------------------------------------------------
     calendar_title_label = Label(frame4, text="Calendario:", fg="white", bg="black", font=("Arial", 15, "bold"))
     calendar_title_label.grid(row=0, column=0, pady=(0, 5), sticky="w")
 
-    for counter in range(0, 4):
-        frame_c = Frame(frame4, background="black")
-        frame_c.grid(row=1 + counter, column=0, sticky="w", pady=(0, 20), padx=(0, 5))
+    if is_me:
+        for counter in range(0, 4):
+            frame_c = Frame(frame4, background="black")
+            frame_c.grid(row=1 + counter, column=0, sticky="w", pady=(0, 20), padx=(0, 5))
 
-        frame_c1 = Frame(frame4, background="black")
-        frame_c1.grid(row=1 + counter, column=1, sticky="w", pady=(0, 5), padx=(20, 0))
+            frame_c1 = Frame(frame4, background="black")
+            frame_c1.grid(row=1 + counter, column=1, sticky="w", pady=(0, 5), padx=(20, 0))
 
-        number_c = Label(frame_c, text=calendar_m.date_number[counter], fg="white", bg="black", font=("Arial", 20))
-        number_c.grid(row=0, column=0, sticky="nw")
-        day_c = Label(frame_c, text=f" / {calendar_m.month[counter]}  {calendar_m.weekday[counter]}", fg="white", bg="black", font=("Arial", 15))
-        day_c.grid(row=0, column=1, sticky="nw")
-        hour_c = Label(frame_c, text=calendar_m.hour[counter], fg="white", bg="black", font=("Arial", 15), anchor="w")
-        hour_c.grid(row=1, column=1, sticky="wesn", columnspan=2)
-        name_c = Label(frame_c1, text=calendar_m.name[counter], fg="white", bg="black", wraplength=200, font=("Arial", 15), anchor="w")
-        name_c.grid(row=1, column=0, sticky="wesn", rowspan=2)
+            number_c = Label(frame_c, text=calendar_m.date_number[counter], fg="white", bg="black", font=("Arial", 20))
+            number_c.grid(row=0, column=0, sticky="nw")
+            day_c = Label(frame_c, text=f" / {calendar_m.month[counter]}  {calendar_m.weekday[counter]}", fg="white", bg="black", font=("Arial", 15))
+            day_c.grid(row=0, column=1, sticky="nw")
+            hour_c = Label(frame_c, text=calendar_m.hour[counter], fg="white", bg="black", font=("Arial", 15), anchor="w")
+            hour_c.grid(row=1, column=1, sticky="wesn", columnspan=2)
+            name_c = Label(frame_c1, text=calendar_m.name[counter], fg="white", bg="black", wraplength=200, font=("Arial", 15), anchor="w")
+            name_c.grid(row=1, column=0, sticky="wesn", rowspan=2)
+    else:
+        not_allowed_calendar = Label(frame4, text="☠ Non puoi vedere questa sezione perché non ti conosco! ☹︎", wraplength=400,
+                                    fg="white", bg="black", font=("Arial", 15, "normal"))
+        not_allowed_calendar.grid(row=1, column=0, pady=(30, 150))
 
 
     # -------------------------------------------------- To Do List ---------------------------------------------------
@@ -195,18 +205,22 @@ def app(microsoft_task_routine, microsoft_task_ricorda):
     routine_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
 
     counter = 0
-    for key, v in routine_list.items():
-        value = v[1]
-        is_routine_checked = StringVar()
-        is_routine_checked.set(value)
-        routine_label = customtkinter.CTkCheckBox(frame5, variable=is_routine_checked, onvalue="completed",
-                                                  offvalue="notStarted", command=lambda k=key: change_check_status(
-                var=my_ref[k][1], checkbtn=my_ref[k][0], key=k, list=routine_list, id_task="ID_ROUTINE_TASK"), text=f"︎   {key}", fg_color="white",
-                                                  text_color="white", bg_color="black", font=font_normal)
-        change_style(is_routine_checked.get(), routine_label)
-        counter += 1
-        routine_label.grid(row=1 + counter, column=0, sticky="w", pady=5)
-        my_ref[key] = [routine_label, is_routine_checked]
+    if is_me:
+        for key, v in routine_list.items():
+            value = v[1]
+            is_routine_checked = StringVar()
+            is_routine_checked.set(value)
+            routine_label = customtkinter.CTkCheckBox(frame5, variable=is_routine_checked, onvalue="completed",
+                                                      offvalue="notStarted", command=lambda k=key: change_check_status(
+                    var=my_ref[k][1], checkbtn=my_ref[k][0], key=k, list=routine_list, id_task="ID_ROUTINE_TASK"), text=f"︎   {key}", fg_color="white",
+                                                      text_color="white", bg_color="black", font=font_normal)
+            change_style(is_routine_checked.get(), routine_label)
+            counter += 1
+            routine_label.grid(row=1 + counter, column=0, sticky="w", pady=5)
+            my_ref[key] = [routine_label, is_routine_checked]
+    else:
+        not_allowed_routine = Label(frame5, text="☠ Non puoi vedere questa sezione perché non ti conosco! ☹︎", wraplength=400, fg="white", bg="black", font=("Arial", 15, "normal"))
+        not_allowed_routine.grid(row=1, column=0, pady=(30,100))
 
 
     # RICORDA DI
@@ -214,18 +228,23 @@ def app(microsoft_task_routine, microsoft_task_ricorda):
     ricorda_title_label.grid(row=0, column=0, pady=(30, 5), sticky="w")
 
     counter2 = 0
-    for key, v in ricorda_di_list.items():
-        value = v[1]
-        is_ricorda_di_checked = StringVar()
-        is_ricorda_di_checked.set(value)
-        ricorda_di_label = customtkinter.CTkCheckBox(frame6, variable=is_ricorda_di_checked, onvalue="completed",
-                                                  offvalue="notStarted", command=lambda k=key: change_check_status(
-                var=my_ref[k][1], checkbtn=my_ref[k][0], key=k, list=ricorda_di_list, id_task="ID_RICORDA_DI_TASK"), text=f"︎   {key}", fg_color="white",
-                                                  text_color="white", bg_color="black", font=font_normal)
-        change_style(is_ricorda_di_checked.get(), ricorda_di_label)
-        counter2 += 1
-        ricorda_di_label.grid(row=1 + counter2, column=0, sticky="w", pady=5)
-        my_ref[key] = [ricorda_di_label, is_ricorda_di_checked]
+    if is_me:
+        for key, v in ricorda_di_list.items():
+            value = v[1]
+            is_ricorda_di_checked = StringVar()
+            is_ricorda_di_checked.set(value)
+            ricorda_di_label = customtkinter.CTkCheckBox(frame6, variable=is_ricorda_di_checked, onvalue="completed",
+                                                      offvalue="notStarted", command=lambda k=key: change_check_status(
+                    var=my_ref[k][1], checkbtn=my_ref[k][0], key=k, list=ricorda_di_list, id_task="ID_RICORDA_DI_TASK"), text=f"︎   {key}", fg_color="white",
+                                                      text_color="white", bg_color="black", font=font_normal)
+            change_style(is_ricorda_di_checked.get(), ricorda_di_label)
+            counter2 += 1
+            ricorda_di_label.grid(row=1 + counter2, column=0, sticky="w", pady=5)
+            my_ref[key] = [ricorda_di_label, is_ricorda_di_checked]
+    else:
+        not_allowed_ricorda = Label(frame6, text="☠ Non puoi vedere questa sezione perché non ti conosco! ☹︎", wraplength=400, fg="white", anchor="w",
+                                bg="black", font=("Arial", 15, "normal"))
+        not_allowed_ricorda.grid(row=1, column=0, pady=(30,0))
 
 
     # -------------------------------------------------- Meteo ---------------------------------------------------
